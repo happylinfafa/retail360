@@ -1,0 +1,9 @@
+{
+  "runId": "uci-retail-ii-20110305-20110901-louvain-seed5588",
+  "counts": {
+    "customers": 300,
+    "communities": 54
+  },
+  "originalSimilarityEdges": 1684,
+  "note": "Membership added to existing Neo4j; old KG and community run preserved."
+}

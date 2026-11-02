@@ -1,0 +1,1572 @@
+{
+  "source": "UCI Online Retail II, Year 2010-2011",
+  "sourceURL": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+  "historicalWindow": [
+    "2011-03-05",
+    "2011-09-01"
+  ],
+  "futureEvaluationWindow": [
+    "2011-09-01",
+    "2011-11-01"
+  ],
+  "sample": {
+    "validHistoricalRows": 155362,
+    "eligibleCustomers": 888,
+    "selectedCustomers": 300,
+    "similarityEdges": 1684,
+    "seed": 5588,
+    "minSharedProducts": 3,
+    "minJaccard": 0.1
+  },
+  "communityMethod": {
+    "name": "NetworkX weighted Louvain",
+    "version": "3.5",
+    "communityCount": 54,
+    "modularity": 0.364886,
+    "topCommunities": [
+      {
+        "id": "12407",
+        "size": 68
+      },
+      {
+        "id": "12415",
+        "size": 62
+      },
+      {
+        "id": "12362",
+        "size": 46
+      },
+      {
+        "id": "12483",
+        "size": 44
+      },
+      {
+        "id": "12693",
+        "size": 23
+      },
+      {
+        "id": "13305",
+        "size": 6
+      },
+      {
+        "id": "13199",
+        "size": 2
+      },
+      {
+        "id": "13630",
+        "size": 2
+      }
+    ],
+    "assignments": {
+      "12500": "12500",
+      "12584": "12584",
+      "12684": "12684",
+      "12722": "12722",
+      "14336": "12407",
+      "16775": "12407",
+      "17398": "12407",
+      "16131": "12407",
+      "17731": "12407",
+      "15513": "12407",
+      "12747": "12407",
+      "17648": "12407",
+      "18109": "12407",
+      "12407": "12407",
+      "16419": "12407",
+      "13854": "12407",
+      "13047": "12407",
+      "16818": "12407",
+      "16466": "12407",
+      "16153": "12407",
+      "13983": "12407",
+      "14849": "12407",
+      "13527": "12407",
+      "18260": "12407",
+      "15796": "12407",
+      "16839": "12407",
+      "15812": "12407",
+      "12916": "12407",
+      "16987": "12407",
+      "15974": "12407",
+      "16709": "12407",
+      "18075": "12407",
+      "16558": "12407",
+      "15410": "12407",
+      "14758": "12407",
+      "15296": "12407",
+      "15570": "12407",
+      "17848": "12407",
+      "17790": "12407",
+      "12569": "12407",
+      "13636": "12407",
+      "15527": "12407",
+      "15194": "12407",
+      "16954": "12407",
+      "13317": "12407",
+      "15508": "12407",
+      "14289": "12407",
+      "17858": "12407",
+      "14530": "12407",
+      "16633": "12407",
+      "12935": "12407",
+      "13324": "12407",
+      "17204": "12407",
+      "15906": "12407",
+      "13475": "12407",
+      "16214": "12407",
+      "13110": "12407",
+      "14262": "12407",
+      "16133": "12407",
+      "15737": "12407",
+      "16146": "12407",
+      "14352": "12407",
+      "15061": "12407",
+      "14640": "12407",
+      "17396": "12407",
+      "12523": "12407",
+      "18219": "12407",
+      "12528": "12407",
+      "13082": "12407",
+      "13831": "12407",
+      "16232": "12407",
+      "17364": "12407",
+      "12989": "12989",
+      "12720": "12415",
+      "17050": "12415",
+      "16145": "12415",
+      "18118": "12415",
+      "13230": "12415",
+      "15704": "12415",
+      "15856": "12415",
+      "17865": "12415",
+      "14606": "12415",
+      "13451": "12415",
+      "17377": "12415",
+      "15491": "12415",
+      "13069": "12415",
+      "14572": "12415",
+      "13014": "12415",
+      "15547": "12415",
+      "17126": "12415",
+      "13117": "12415",
+      "15493": "12415",
+      "17841": "12415",
+      "14730": "12415",
+      "15311": "12415",
+      "15059": "12415",
+      "17799": "12415",
+      "16729": "12415",
+      "16033": "12415",
+      "16743": "12415",
+      "12744": "12415",
+      "16115": "12415",
+      "17921": "12415",
+      "12484": "12415",
+      "13668": "12415",
+      "15719": "12415",
+      "15034": "12415",
+      "15615": "12415",
+      "15023": "12415",
+      "14462": "12415",
+      "16843": "12415",
+      "14796": "12415",
+      "14587": "12415",
+      "13700": "12415",
+      "13089": "12415",
+      "13694": "12415",
+      "13232": "12415",
+      "15150": "12415",
+      "17811": "12415",
+      "13001": "12415",
+      "14505": "12415",
+      "14936": "12415",
+      "15356": "12415",
+      "12415": "12415",
+      "12428": "12415",
+      "15249": "12415",
+      "16225": "12415",
+      "13268": "12415",
+      "16370": "12415",
+      "16592": "12415",
+      "15334": "12415",
+      "17716": "12415",
+      "13097": "12415",
+      "15039": "12415",
+      "14085": "12415",
+      "13199": "13199",
+      "15938": "13199",
+      "12637": "12362",
+      "16422": "12362",
+      "12583": "12362",
+      "15644": "12362",
+      "16712": "12362",
+      "13266": "12362",
+      "14952": "12362",
+      "16791": "12362",
+      "12362": "12362",
+      "17284": "12362",
+      "15245": "12362",
+      "14541": "12362",
+      "17861": "12362",
+      "16710": "12362",
+      "17519": "12362",
+      "16700": "12362",
+      "12476": "12362",
+      "12947": "12362",
+      "12399": "12362",
+      "12455": "12362",
+      "14776": "12362",
+      "13209": "12362",
+      "16258": "12362",
+      "12681": "12362",
+      "17306": "12362",
+      "12408": "12362",
+      "17365": "12362",
+      "15738": "12362",
+      "12553": "12362",
+      "15544": "12362",
+      "14868": "12362",
+      "12910": "12362",
+      "12676": "12362",
+      "12971": "12362",
+      "17017": "12362",
+      "16686": "12362",
+      "12481": "12362",
+      "14057": "12362",
+      "12598": "12362",
+      "12437": "12362",
+      "17979": "12362",
+      "12726": "12362",
+      "14623": "12362",
+      "15518": "12362",
+      "17314": "12362",
+      "13908": "12362",
+      "13394": "13394",
+      "13477": "13477",
+      "13491": "13491",
+      "13538": "13305",
+      "13305": "13305",
+      "18061": "13305",
+      "15465": "13305",
+      "17770": "13305",
+      "14403": "13305",
+      "13610": "13610",
+      "13870": "13870",
+      "13956": "13956",
+      "14078": "14078",
+      "14132": "14132",
+      "14214": "14214",
+      "14397": "13630",
+      "13630": "13630",
+      "14401": "14401",
+      "17422": "14401",
+      "14560": "14560",
+      "14696": "14696",
+      "14878": "14878",
+      "15134": "15134",
+      "15187": "15187",
+      "15241": "15241",
+      "15505": "15505",
+      "15581": "15581",
+      "15694": "15694",
+      "15815": "15815",
+      "15854": "15854",
+      "15874": "15874",
+      "16027": "16027",
+      "16224": "16224",
+      "16949": "16949",
+      "17007": "17007",
+      "17045": "17045",
+      "16570": "12693",
+      "14738": "12693",
+      "13709": "12693",
+      "15955": "12693",
+      "17591": "12693",
+      "17975": "12693",
+      "17765": "12693",
+      "16912": "12693",
+      "18223": "12693",
+      "16265": "12693",
+      "18231": "12693",
+      "12693": "12693",
+      "18094": "12693",
+      "18173": "12693",
+      "15027": "12693",
+      "17757": "12693",
+      "14235": "12693",
+      "17857": "12693",
+      "16098": "12693",
+      "14735": "12693",
+      "15288": "12693",
+      "15939": "12693",
+      "16013": "12693",
+      "17054": "17054",
+      "17152": "17152",
+      "17293": "17293",
+      "17368": "17368",
+      "17400": "17400",
+      "17419": "17419",
+      "17429": "17429",
+      "17457": "17457",
+      "17491": "17491",
+      "17612": "17612",
+      "12483": "12483",
+      "17211": "12483",
+      "14388": "12483",
+      "13327": "12483",
+      "17686": "12483",
+      "14680": "12483",
+      "12593": "12483",
+      "13875": "12483",
+      "14659": "12483",
+      "16180": "12483",
+      "14825": "12483",
+      "16523": "12483",
+      "17758": "12483",
+      "14188": "12483",
+      "13534": "12483",
+      "12649": "12483",
+      "13162": "12483",
+      "17677": "12483",
+      "14112": "12483",
+      "15382": "12483",
+      "16809": "12483",
+      "18226": "12483",
+      "15203": "12483",
+      "14709": "12483",
+      "17562": "12483",
+      "15752": "12483",
+      "15298": "12483",
+      "17705": "12483",
+      "17682": "12483",
+      "16218": "12483",
+      "13178": "12483",
+      "15144": "12483",
+      "12757": "12483",
+      "12613": "12483",
+      "17091": "12483",
+      "16746": "12483",
+      "16745": "12483",
+      "17416": "12483",
+      "17068": "12483",
+      "15674": "12483",
+      "16477": "12483",
+      "15632": "12483",
+      "16187": "12483",
+      "14810": "12483",
+      "17696": "17696",
+      "17869": "17869",
+      "17874": "17874",
+      "17966": "17966"
+    },
+    "profiles": [
+      {
+        "group": "12407",
+        "size": 68,
+        "topProducts": [
+          {
+            "product": "22423",
+            "description": "REGENCY CAKESTAND 3 TIER",
+            "customerCount": 40,
+            "groupPrevalence": 0.588,
+            "cohortPrevalence": 0.303,
+            "prevalenceRatio": 1.939,
+            "source": {
+              "customer": "12523",
+              "invoice": "546770",
+              "sourceRow": "Year 2010-2011:121527"
+            }
+          },
+          {
+            "product": "22697",
+            "description": "GREEN REGENCY TEACUP AND SAUCER",
+            "customerCount": 27,
+            "groupPrevalence": 0.397,
+            "cohortPrevalence": 0.153,
+            "prevalenceRatio": 2.59,
+            "source": {
+              "customer": "13317",
+              "invoice": "550125",
+              "sourceRow": "Year 2010-2011:156217"
+            }
+          },
+          {
+            "product": "22699",
+            "description": "ROSES REGENCY TEACUP AND SAUCER ",
+            "customerCount": 27,
+            "groupPrevalence": 0.397,
+            "cohortPrevalence": 0.163,
+            "prevalenceRatio": 2.431,
+            "source": {
+              "customer": "13317",
+              "invoice": "550125",
+              "sourceRow": "Year 2010-2011:156218"
+            }
+          },
+          {
+            "product": "47566",
+            "description": "PARTY BUNTING",
+            "customerCount": 27,
+            "groupPrevalence": 0.397,
+            "cohortPrevalence": 0.37,
+            "prevalenceRatio": 1.073,
+            "source": {
+              "customer": "12916",
+              "invoice": "554066",
+              "sourceRow": "Year 2010-2011:198759"
+            }
+          },
+          {
+            "product": "85123A",
+            "description": "WHITE HANGING HEART T-LIGHT HOLDER",
+            "customerCount": 25,
+            "groupPrevalence": 0.368,
+            "cohortPrevalence": 0.25,
+            "prevalenceRatio": 1.471,
+            "source": {
+              "customer": "12747",
+              "invoice": "551992",
+              "sourceRow": "Year 2010-2011:175873"
+            }
+          }
+        ]
+      },
+      {
+        "group": "12415",
+        "size": 62,
+        "topProducts": [
+          {
+            "product": "47566",
+            "description": "PARTY BUNTING",
+            "customerCount": 38,
+            "groupPrevalence": 0.613,
+            "cohortPrevalence": 0.37,
+            "prevalenceRatio": 1.656,
+            "source": {
+              "customer": "12415",
+              "invoice": "553546",
+              "sourceRow": "Year 2010-2011:193926"
+            }
+          },
+          {
+            "product": "23298",
+            "description": "SPOTTY BUNTING",
+            "customerCount": 32,
+            "groupPrevalence": 0.516,
+            "cohortPrevalence": 0.3,
+            "prevalenceRatio": 1.72,
+            "source": {
+              "customer": "12415",
+              "invoice": "553546",
+              "sourceRow": "Year 2010-2011:193925"
+            }
+          },
+          {
+            "product": "21212",
+            "description": "PACK OF 72 RETROSPOT CAKE CASES",
+            "customerCount": 30,
+            "groupPrevalence": 0.484,
+            "cohortPrevalence": 0.277,
+            "prevalenceRatio": 1.749,
+            "source": {
+              "customer": "12415",
+              "invoice": "556917",
+              "sourceRow": "Year 2010-2011:228249"
+            }
+          },
+          {
+            "product": "85123A",
+            "description": "WHITE HANGING HEART T-LIGHT HOLDER",
+            "customerCount": 30,
+            "groupPrevalence": 0.484,
+            "cohortPrevalence": 0.25,
+            "prevalenceRatio": 1.935,
+            "source": {
+              "customer": "12744",
+              "invoice": "560360",
+              "sourceRow": "Year 2010-2011:267778"
+            }
+          },
+          {
+            "product": "20727",
+            "description": "LUNCH BAG  BLACK SKULL.",
+            "customerCount": 29,
+            "groupPrevalence": 0.468,
+            "cohortPrevalence": 0.26,
+            "prevalenceRatio": 1.799,
+            "source": {
+              "customer": "12484",
+              "invoice": "564734",
+              "sourceRow": "Year 2010-2011:315732"
+            }
+          }
+        ]
+      },
+      {
+        "group": "12362",
+        "size": 46,
+        "topProducts": [
+          {
+            "product": "21080",
+            "description": "SET/20 RED RETROSPOT PAPER NAPKINS ",
+            "customerCount": 22,
+            "groupPrevalence": 0.478,
+            "cohortPrevalence": 0.217,
+            "prevalenceRatio": 2.207,
+            "source": {
+              "customer": "12399",
+              "invoice": "547412",
+              "sourceRow": "Year 2010-2011:130107"
+            }
+          },
+          {
+            "product": "20725",
+            "description": "LUNCH BAG RED RETROSPOT",
+            "customerCount": 20,
+            "groupPrevalence": 0.435,
+            "cohortPrevalence": 0.29,
+            "prevalenceRatio": 1.499,
+            "source": {
+              "customer": "12399",
+              "invoice": "547412",
+              "sourceRow": "Year 2010-2011:130118"
+            }
+          },
+          {
+            "product": "21212",
+            "description": "PACK OF 72 RETROSPOT CAKE CASES",
+            "customerCount": 20,
+            "groupPrevalence": 0.435,
+            "cohortPrevalence": 0.277,
+            "prevalenceRatio": 1.572,
+            "source": {
+              "customer": "12399",
+              "invoice": "547412",
+              "sourceRow": "Year 2010-2011:130102"
+            }
+          },
+          {
+            "product": "21086",
+            "description": "SET/6 RED SPOTTY PAPER CUPS",
+            "customerCount": 18,
+            "groupPrevalence": 0.391,
+            "cohortPrevalence": 0.117,
+            "prevalenceRatio": 3.354,
+            "source": {
+              "customer": "12399",
+              "invoice": "547412",
+              "sourceRow": "Year 2010-2011:130108"
+            }
+          },
+          {
+            "product": "21094",
+            "description": "SET/6 RED SPOTTY PAPER PLATES",
+            "customerCount": 18,
+            "groupPrevalence": 0.391,
+            "cohortPrevalence": 0.12,
+            "prevalenceRatio": 3.261,
+            "source": {
+              "customer": "12399",
+              "invoice": "547412",
+              "sourceRow": "Year 2010-2011:130106"
+            }
+          }
+        ]
+      },
+      {
+        "group": "12483",
+        "size": 44,
+        "topProducts": [
+          {
+            "product": "85099B",
+            "description": "JUMBO BAG RED RETROSPOT",
+            "customerCount": 32,
+            "groupPrevalence": 0.727,
+            "cohortPrevalence": 0.26,
+            "prevalenceRatio": 2.797,
+            "source": {
+              "customer": "12613",
+              "invoice": "547383",
+              "sourceRow": "Year 2010-2011:129333"
+            }
+          },
+          {
+            "product": "20725",
+            "description": "LUNCH BAG RED RETROSPOT",
+            "customerCount": 31,
+            "groupPrevalence": 0.705,
+            "cohortPrevalence": 0.29,
+            "prevalenceRatio": 2.429,
+            "source": {
+              "customer": "12483",
+              "invoice": "551278",
+              "sourceRow": "Year 2010-2011:170145"
+            }
+          },
+          {
+            "product": "20727",
+            "description": "LUNCH BAG  BLACK SKULL.",
+            "customerCount": 31,
+            "groupPrevalence": 0.705,
+            "cohortPrevalence": 0.26,
+            "prevalenceRatio": 2.71,
+            "source": {
+              "customer": "12593",
+              "invoice": "562039",
+              "sourceRow": "Year 2010-2011:286765"
+            }
+          },
+          {
+            "product": "23203",
+            "description": "JUMBO BAG DOILEY PATTERNS",
+            "customerCount": 31,
+            "groupPrevalence": 0.705,
+            "cohortPrevalence": 0.283,
+            "prevalenceRatio": 2.487,
+            "source": {
+              "customer": "12757",
+              "invoice": "553017",
+              "sourceRow": "Year 2010-2011:188213"
+            }
+          },
+          {
+            "product": "23206",
+            "description": "LUNCH BAG APPLE DESIGN",
+            "customerCount": 31,
+            "groupPrevalence": 0.705,
+            "cohortPrevalence": 0.247,
+            "prevalenceRatio": 2.856,
+            "source": {
+              "customer": "12483",
+              "invoice": "551278",
+              "sourceRow": "Year 2010-2011:170142"
+            }
+          }
+        ]
+      },
+      {
+        "group": "12693",
+        "size": 23,
+        "topProducts": [
+          {
+            "product": "23203",
+            "description": "JUMBO BAG DOILEY PATTERNS",
+            "customerCount": 9,
+            "groupPrevalence": 0.391,
+            "cohortPrevalence": 0.283,
+            "prevalenceRatio": 1.381,
+            "source": {
+              "customer": "13709",
+              "invoice": "557963",
+              "sourceRow": "Year 2010-2011:239006"
+            }
+          },
+          {
+            "product": "23284",
+            "description": "DOORMAT KEEP CALM AND COME IN",
+            "customerCount": 9,
+            "groupPrevalence": 0.391,
+            "cohortPrevalence": 0.157,
+            "prevalenceRatio": 2.498,
+            "source": {
+              "customer": "13709",
+              "invoice": "557963",
+              "sourceRow": "Year 2010-2011:238999"
+            }
+          },
+          {
+            "product": "47566",
+            "description": "PARTY BUNTING",
+            "customerCount": 9,
+            "groupPrevalence": 0.391,
+            "cohortPrevalence": 0.37,
+            "prevalenceRatio": 1.058,
+            "source": {
+              "customer": "13709",
+              "invoice": "557962",
+              "sourceRow": "Year 2010-2011:238989"
+            }
+          },
+          {
+            "product": "22726",
+            "description": "ALARM CLOCK BAKELIKE GREEN",
+            "customerCount": 8,
+            "groupPrevalence": 0.348,
+            "cohortPrevalence": 0.117,
+            "prevalenceRatio": 2.981,
+            "source": {
+              "customer": "14735",
+              "invoice": "546667",
+              "sourceRow": "Year 2010-2011:120611"
+            }
+          },
+          {
+            "product": "22727",
+            "description": "ALARM CLOCK BAKELIKE RED ",
+            "customerCount": 8,
+            "groupPrevalence": 0.348,
+            "cohortPrevalence": 0.16,
+            "prevalenceRatio": 2.174,
+            "source": {
+              "customer": "14735",
+              "invoice": "551427",
+              "sourceRow": "Year 2010-2011:171559"
+            }
+          }
+        ]
+      },
+      {
+        "group": "13305",
+        "size": 6,
+        "topProducts": [
+          {
+            "product": "21524",
+            "description": "DOORMAT SPOTTY HOME SWEET HOME",
+            "customerCount": 4,
+            "groupPrevalence": 0.667,
+            "cohortPrevalence": 0.073,
+            "prevalenceRatio": 9.091,
+            "source": {
+              "customer": "13305",
+              "invoice": "546402",
+              "sourceRow": "Year 2010-2011:117731"
+            }
+          },
+          {
+            "product": "23284",
+            "description": "DOORMAT KEEP CALM AND COME IN",
+            "customerCount": 4,
+            "groupPrevalence": 0.667,
+            "cohortPrevalence": 0.157,
+            "prevalenceRatio": 4.255,
+            "source": {
+              "customer": "13305",
+              "invoice": "560231",
+              "sourceRow": "Year 2010-2011:265835"
+            }
+          },
+          {
+            "product": "21523",
+            "description": "DOORMAT FANCY FONT HOME SWEET HOME",
+            "customerCount": 3,
+            "groupPrevalence": 0.5,
+            "cohortPrevalence": 0.067,
+            "prevalenceRatio": 7.5,
+            "source": {
+              "customer": "13305",
+              "invoice": "546402",
+              "sourceRow": "Year 2010-2011:117730"
+            }
+          },
+          {
+            "product": "23050",
+            "description": "RECYCLED ACAPULCO MAT GREEN",
+            "customerCount": 3,
+            "groupPrevalence": 0.5,
+            "cohortPrevalence": 0.057,
+            "prevalenceRatio": 8.824,
+            "source": {
+              "customer": "14403",
+              "invoice": "549127",
+              "sourceRow": "Year 2010-2011:147648"
+            }
+          },
+          {
+            "product": "23051",
+            "description": "RECYCLED ACAPULCO MAT BLUE",
+            "customerCount": 3,
+            "groupPrevalence": 0.5,
+            "cohortPrevalence": 0.053,
+            "prevalenceRatio": 9.375,
+            "source": {
+              "customer": "14403",
+              "invoice": "549127",
+              "sourceRow": "Year 2010-2011:147647"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "evaluation": {
+    "task": "Recommend new-to-customer products using historical peer products; score against next 60 days",
+    "queryCount": 223,
+    "topK": 10,
+    "peerK": 5,
+    "baselineDefinitions": {
+      "popularity": "Top cohort products before cutoff, excluding own history",
+      "global_graph": "Top 5 directly similar peers, any community",
+      "community_graph": "Top 5 directly similar peers restricted to weighted-Louvain community"
+    },
+    "metrics": {
+      "popularity": {
+        "hits": 99,
+        "recommended": 2230,
+        "eligibleFuture": 6205,
+        "queriesWithCandidates": 223,
+        "queriesWithHit": 63,
+        "peerCount": 0,
+        "queries": 223,
+        "microPrecisionAt10": 0.044395,
+        "hitRateAt10": 0.282511,
+        "candidateCoverage": 1.0,
+        "meanPeerCount": 0.0,
+        "microRecallAt10": 0.015955
+      },
+      "global_graph": {
+        "hits": 143,
+        "recommended": 1901,
+        "eligibleFuture": 6205,
+        "queriesWithCandidates": 192,
+        "queriesWithHit": 73,
+        "peerCount": 793,
+        "queries": 223,
+        "microPrecisionAt10": 0.075224,
+        "hitRateAt10": 0.327354,
+        "candidateCoverage": 0.860987,
+        "meanPeerCount": 3.556,
+        "microRecallAt10": 0.023046
+      },
+      "community_graph": {
+        "hits": 122,
+        "recommended": 1901,
+        "eligibleFuture": 6205,
+        "queriesWithCandidates": 192,
+        "queriesWithHit": 69,
+        "peerCount": 739,
+        "queries": 223,
+        "microPrecisionAt10": 0.064177,
+        "hitRateAt10": 0.309417,
+        "candidateCoverage": 0.860987,
+        "meanPeerCount": 3.314,
+        "microRecallAt10": 0.019662
+      }
+    },
+    "cases": [
+      {
+        "customer": "12362",
+        "community": "12362",
+        "futureNewProductCount": 83,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "23298",
+              "20725",
+              "23203",
+              "21212",
+              "20727",
+              "85099B",
+              "85123A",
+              "22384",
+              "21080",
+              "22993"
+            ],
+            "hits": [
+              "20725",
+              "21080",
+              "23203",
+              "85099B"
+            ],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "20727",
+              "21559",
+              "21930",
+              "85099B",
+              "22385",
+              "23201",
+              "20725",
+              "22355",
+              "22384",
+              "22556"
+            ],
+            "hits": [
+              "20725",
+              "22385",
+              "85099B"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "12637",
+                "invoice": "547194",
+                "sourceRow": "Year 2010-2011:127120",
+                "similarity": 0.148148
+              },
+              {
+                "peer": "13178",
+                "invoice": "549387",
+                "sourceRow": "Year 2010-2011:150250",
+                "similarity": 0.134454
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "20725",
+              "20727",
+              "22556",
+              "21212",
+              "23207",
+              "22631",
+              "22384",
+              "21559",
+              "21915",
+              "22729"
+            ],
+            "hits": [
+              "20725",
+              "22631"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "12637",
+                "invoice": "547194",
+                "sourceRow": "Year 2010-2011:127123",
+                "similarity": 0.148148
+              },
+              {
+                "peer": "13209",
+                "invoice": "551014",
+                "sourceRow": "Year 2010-2011:168210",
+                "similarity": 0.127193
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12407",
+        "community": "12407",
+        "futureNewProductCount": 7,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "47566",
+              "22423",
+              "23298",
+              "20725",
+              "23203",
+              "20727",
+              "23209",
+              "85099B",
+              "20728",
+              "22383"
+            ],
+            "hits": [],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "22215",
+              "22220",
+              "22423",
+              "37449",
+              "21232",
+              "21215",
+              "21213",
+              "22222",
+              "84378",
+              "84380"
+            ],
+            "hits": [],
+            "peerCount": 4,
+            "firstEvidence": [
+              {
+                "peer": "12528",
+                "invoice": "559899",
+                "sourceRow": "Year 2010-2011:262121",
+                "similarity": 0.132353
+              },
+              {
+                "peer": "17398",
+                "invoice": "548152",
+                "sourceRow": "Year 2010-2011:137295",
+                "similarity": 0.126761
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "22215",
+              "22220",
+              "22423",
+              "37449",
+              "21232",
+              "21215",
+              "21213",
+              "22222",
+              "84378",
+              "84380"
+            ],
+            "hits": [],
+            "peerCount": 4,
+            "firstEvidence": [
+              {
+                "peer": "12528",
+                "invoice": "559899",
+                "sourceRow": "Year 2010-2011:262121",
+                "similarity": 0.132353
+              },
+              {
+                "peer": "17398",
+                "invoice": "548152",
+                "sourceRow": "Year 2010-2011:137295",
+                "similarity": 0.126761
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12408",
+        "community": "12362",
+        "futureNewProductCount": 9,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "47566",
+              "22423",
+              "23298",
+              "20725",
+              "23203",
+              "21212",
+              "20727",
+              "23209",
+              "20728",
+              "22383"
+            ],
+            "hits": [],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "21559",
+              "20725",
+              "22352",
+              "23206",
+              "20726",
+              "20727",
+              "20728",
+              "21930",
+              "22355",
+              "22383"
+            ],
+            "hits": [],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "14680",
+                "invoice": "548169",
+                "sourceRow": "Year 2010-2011:137854",
+                "similarity": 0.128713
+              },
+              {
+                "peer": "13178",
+                "invoice": "549387",
+                "sourceRow": "Year 2010-2011:150254",
+                "similarity": 0.12844
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "21559",
+              "22554",
+              "22556",
+              "20725",
+              "22423",
+              "22555",
+              "22892",
+              "22992",
+              "23206",
+              "84212"
+            ],
+            "hits": [
+              "22554",
+              "22556"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "12637",
+                "invoice": "559036",
+                "sourceRow": "Year 2010-2011:250516",
+                "similarity": 0.125984
+              },
+              {
+                "peer": "12598",
+                "invoice": "551539",
+                "sourceRow": "Year 2010-2011:172481",
+                "similarity": 0.115385
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12415",
+        "community": "12415",
+        "futureNewProductCount": 58,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "20727",
+              "20728",
+              "22383",
+              "85123A",
+              "22384",
+              "82482",
+              "84879",
+              "22178",
+              "84991",
+              "21931"
+            ],
+            "hits": [
+              "20727"
+            ],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "23126",
+              "23128",
+              "21916",
+              "22722",
+              "22723",
+              "82552",
+              "20723",
+              "20724",
+              "20727",
+              "20728"
+            ],
+            "hits": [
+              "20727",
+              "22722"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "14849",
+                "invoice": "557118",
+                "sourceRow": "Year 2010-2011:230057",
+                "similarity": 0.162722
+              },
+              {
+                "peer": "13089",
+                "invoice": "546000",
+                "sourceRow": "Year 2010-2011:113902",
+                "similarity": 0.161404
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "20727",
+              "22385",
+              "85099F",
+              "22722",
+              "22907",
+              "22964",
+              "85123A",
+              "20723",
+              "20724",
+              "20728"
+            ],
+            "hits": [
+              "20727",
+              "22722",
+              "22907"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "13089",
+                "invoice": "545999",
+                "sourceRow": "Year 2010-2011:113856",
+                "similarity": 0.161404
+              },
+              {
+                "peer": "17841",
+                "invoice": "545868",
+                "sourceRow": "Year 2010-2011:112073",
+                "similarity": 0.143132
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12437",
+        "community": "12362",
+        "futureNewProductCount": 22,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "23298",
+              "23203",
+              "20727",
+              "23209",
+              "85099B",
+              "22383",
+              "85123A",
+              "23206",
+              "22384",
+              "22382"
+            ],
+            "hits": [],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "22333",
+              "84997B",
+              "84997C",
+              "84997D",
+              "21121",
+              "21987",
+              "21988",
+              "21989",
+              "20675",
+              "20676"
+            ],
+            "hits": [
+              "20675",
+              "20676",
+              "21121",
+              "21987",
+              "21988",
+              "21989",
+              "22333"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "12726",
+                "invoice": "547087",
+                "sourceRow": "Year 2010-2011:126579",
+                "similarity": 0.188679
+              },
+              {
+                "peer": "15544",
+                "invoice": "557275",
+                "sourceRow": "Year 2010-2011:231634",
+                "similarity": 0.131313
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "22333",
+              "84997B",
+              "84997C",
+              "84997D",
+              "21121",
+              "21987",
+              "21988",
+              "21989",
+              "20675",
+              "20676"
+            ],
+            "hits": [
+              "20675",
+              "20676",
+              "21121",
+              "21987",
+              "21988",
+              "21989",
+              "22333"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "12726",
+                "invoice": "547087",
+                "sourceRow": "Year 2010-2011:126579",
+                "similarity": 0.188679
+              },
+              {
+                "peer": "15544",
+                "invoice": "557275",
+                "sourceRow": "Year 2010-2011:231634",
+                "similarity": 0.131313
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12455",
+        "community": "12362",
+        "futureNewProductCount": 18,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "47566",
+              "22423",
+              "23298",
+              "21212",
+              "20727",
+              "20728",
+              "85123A",
+              "23206",
+              "22384",
+              "22382"
+            ],
+            "hits": [
+              "21212"
+            ],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "21212",
+              "22333",
+              "20728",
+              "22554",
+              "22553",
+              "23206",
+              "20974",
+              "21121",
+              "47566B",
+              "21224"
+            ],
+            "hits": [
+              "21121",
+              "21212"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "15738",
+                "invoice": "559060",
+                "sourceRow": "Year 2010-2011:252021",
+                "similarity": 0.306122
+              },
+              {
+                "peer": "15544",
+                "invoice": "553006",
+                "sourceRow": "Year 2010-2011:187796",
+                "similarity": 0.219512
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "21212",
+              "22333",
+              "22554",
+              "20974",
+              "21121",
+              "21746",
+              "23245",
+              "20728",
+              "21224",
+              "21544"
+            ],
+            "hits": [
+              "21121",
+              "21212"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "15738",
+                "invoice": "559060",
+                "sourceRow": "Year 2010-2011:252021",
+                "similarity": 0.306122
+              },
+              {
+                "peer": "15544",
+                "invoice": "553006",
+                "sourceRow": "Year 2010-2011:187796",
+                "similarity": 0.219512
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12476",
+        "community": "12362",
+        "futureNewProductCount": 31,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "47566",
+              "23298",
+              "20725",
+              "21212",
+              "20727",
+              "23209",
+              "85099B",
+              "20728",
+              "22383",
+              "85123A"
+            ],
+            "hits": [],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "15036",
+              "20719",
+              "20981",
+              "21114",
+              "21397",
+              "21399",
+              "21731",
+              "21787",
+              "21896",
+              "21914"
+            ],
+            "hits": [],
+            "peerCount": 1,
+            "firstEvidence": [
+              {
+                "peer": "12481",
+                "invoice": "547925",
+                "sourceRow": "Year 2010-2011:136060",
+                "similarity": 0.10274
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "15036",
+              "20719",
+              "20981",
+              "21114",
+              "21397",
+              "21399",
+              "21731",
+              "21787",
+              "21896",
+              "21914"
+            ],
+            "hits": [],
+            "peerCount": 1,
+            "firstEvidence": [
+              {
+                "peer": "12481",
+                "invoice": "547925",
+                "sourceRow": "Year 2010-2011:136060",
+                "similarity": 0.10274
+              }
+            ]
+          }
+        }
+      },
+      {
+        "customer": "12481",
+        "community": "12362",
+        "futureNewProductCount": 32,
+        "outputs": {
+          "popularity": {
+            "top10": [
+              "47566",
+              "22423",
+              "23298",
+              "20725",
+              "21212",
+              "20727",
+              "85099B",
+              "20728",
+              "22383",
+              "85123A"
+            ],
+            "hits": [],
+            "peerCount": 0,
+            "firstEvidence": []
+          },
+          "global_graph": {
+            "top10": [
+              "22652",
+              "20725",
+              "22697",
+              "22699",
+              "21559",
+              "22423",
+              "23236",
+              "21212",
+              "23158",
+              "22624"
+            ],
+            "hits": [
+              "22624",
+              "22652",
+              "23236"
+            ],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "15296",
+                "invoice": "552825",
+                "sourceRow": "Year 2010-2011:185748",
+                "similarity": 0.142857
+              },
+              {
+                "peer": "13082",
+                "invoice": "546552",
+                "sourceRow": "Year 2010-2011:119568",
+                "similarity": 0.128
+              }
+            ]
+          },
+          "community_graph": {
+            "top10": [
+              "20725",
+              "21212",
+              "23158",
+              "22722",
+              "21080",
+              "21086",
+              "21094",
+              "22423",
+              "23000",
+              "22467"
+            ],
+            "hits": [],
+            "peerCount": 5,
+            "firstEvidence": [
+              {
+                "peer": "16710",
+                "invoice": "553385",
+                "sourceRow": "Year 2010-2011:191695",
+                "similarity": 0.119266
+              },
+              {
+                "peer": "16700",
+                "invoice": "547667",
+                "sourceRow": "Year 2010-2011:132508",
+                "similarity": 0.117647
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "checks": {
+    "all_customers_assigned": true,
+    "ranking_uses_only_historical_rows": true,
+    "global_retrieval_coverage_at_least_community": true,
+    "louvain_modularity_finite": true
+  },
+  "limitations": [
+    "300-customer seeded exploratory cohort, not the full population",
+    "Future product overlap is a proxy for utility, not a human relevance label",
+    "Community assignment and thresholds need temporal stability and sensitivity checks",
+    "No causal claim that a community causes future purchases"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "checks": {
+    "real_neo4j_two_modes": true,
+    "community_peers_meet_similarity_rule": true,
+    "modes_can_change_ranking": true,
+    "top_peer_and_exact_score": true,
+    "same_community_only": true,
+    "source_rows_for_each_peer": true,
+    "missing_customer_fallback": true,
+    "high_threshold_fallback": true
+  },
+  "passed": 8,
+  "total": 8,
+  "question": "Which customers resemble customer 15719?",
+  "globalPeers": [
+    "15356",
+    "15615",
+    "16745",
+    "17068",
+    "16180",
+    "12757",
+    "14810",
+    "15039",
+    "16370",
+    "18118"
+  ],
+  "communityPeers": [
+    "15356",
+    "15615",
+    "15039",
+    "16370",
+    "18118",
+    "16843",
+    "15023",
+    "17841",
+    "16225",
+    "13089"
+  ],
+  "exampleEvidence": [
+    {
+      "product": "20713",
+      "description": "JUMBO BAG OWLS",
+      "invoiceA": "547359",
+      "rowA": "Year 2010-2011:128739",
+      "invoiceB": "557233",
+      "rowB": "Year 2010-2011:231094",
+      "sourceFile": "online_retail_II.xlsx",
+      "peer": "15356",
+      "jaccard": 0.218430034
+    },
+    {
+      "product": "20717",
+      "description": "STRAWBERRY SHOPPER BAG",
+      "invoiceA": "547359",
+      "rowA": "Year 2010-2011:128746",
+      "invoiceB": "557233",
+      "rowB": "Year 2010-2011:231091",
+      "sourceFile": "online_retail_II.xlsx",
+      "peer": "15356",
+      "jaccard": 0.218430034
+    }
+  ],
+  "limitations": [
+    "LLM text is not evaluated by this script",
+    "No user-study measure of explanatory value"
+  ]
+}
