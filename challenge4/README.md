@@ -1,4 +1,51 @@
-# Challenge 4 AI Design: community-aware retrieval preview
+# Challenge 4: community-aware GraphRAG research prototype
+
+## New Human–AI application and measured finding (November 1)
+
+This extends the **existing local Challenge 3 Neo4j GraphRAG**, preserving its graph and earlier community run. The new experiment uses [NetworkX weighted Louvain](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.community.louvain.louvain_communities.html) on the same 300-customer, 1,684-edge historical projection. It found **54 communities** with weighted modularity **0.364886**. These are exploratory descriptions of observed purchasing overlap, not verified personal preferences.
+
+Two examples show domain meaning. Community 12407 has 68 sampled customers; 40 purchased `REGENCY CAKESTAND 3 TIER` (group prevalence 58.8%, about 1.94 times its cohort prevalence). Community 12415 has 62 customers; 38 purchased `PARTY BUNTING` (61.3%, about 1.66 times cohort prevalence). The source invoice and worksheet row for each reported product are saved in `results/community_ablation.json`. These patterns describe the historical sample only.
+
+### Temporal evaluation and ablation
+
+All graph edges, communities, and candidates use purchases from **March 5 through August 31, 2011**. The subsequent **September 1 through October 31, 2011** purchases are held out exclusively for evaluation. For each of the **223** sampled customers who bought at least one new-to-them product during follow-up, the experiment ranks up to 10 candidate products. `global_graph` retrieves the top 5 historical similarity neighbors across communities; `community_graph` restricts them to the same Louvain group. A pre-cutoff popularity ranking is a simpler comparison. The outcome is overlap with each target's future new products; it is a proxy, not a judged relevance label.
+
+| Method | Micro recall@10 | Micro precision@10 | Hit rate@10 | Candidate coverage |
+|---|---:|---:|---:|---:|
+| Popularity | 0.015955 | 0.044395 | 0.282511 | 1.000000 |
+| Original global graph | **0.023046** | **0.075224** | **0.327354** | 0.860987 |
+| Louvain community filter | 0.019662 | 0.064177 | 0.309417 | 0.860987 |
+
+Community filtering **did not improve this retrieval outcome**: it lowered micro recall@10 by 0.003384 relative to global graph retrieval. The data support showing communities as an optional explanation/exploration lens, while keeping unrestricted graph retrieval as the default for discovery. No claim of statistical significance or causal business impact is made. The cohort is small, the thresholds are fixed, and the community partition has not been tested for temporal stability.
+
+### Local application
+
+`app.py` accepts a natural-language customer question with a five-digit ID. The human adjusts a historical Jaccard threshold and peer count, compares original and community-filtered Neo4j retrieval, inspects a customer relationship graph and transaction-level source rows, and accepts/rejects/corrects the explanation for the current browser session. The local `qwen2.5:1.5b` model selects observed product examples from retrieved evidence; Python and Cypher retain control over all scores, IDs, and citation paths. An invalid model response is withheld. This interactive, generated evidence story is the GenAI presentation component. The content is factual, and a separate limitation note states what the observations cannot prove.
+
+The local app is **not** the separately deployed Challenge 2 Streamlit Cloud app. To reproduce with your existing local Neo4j and Ollama:
+
+```powershell
+pip install -r challenge4/requirements.txt
+python challenge4/community_experiment.py --xlsx path/to/online_retail_II.xlsx
+python challenge4/import_louvain.py --credentials path/to/private-neo4j-credentials.json
+python challenge4/test_community_rag.py --credentials path/to/private-neo4j-credentials.json
+$env:RETAIL360_NEO4J_CREDENTIALS='path/to/private-neo4j-credentials.json'
+streamlit run challenge4/app.py --server.port 8504
+```
+
+Download the public workbook from [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii) and first prepare the Challenge 3/earlier Challenge 4 KG as described below. The credentials JSON contains `uri`, `username`, `password` and must remain outside Git. The importer creates `LouvainCommunity` nodes and `CH4_LOUVAIN_MEMBER_OF` edges; the original `Customer`, `Product`, `CH4_SIMILAR`, and `CH4_BOUGHT` evidence paths remain intact. It added **300 memberships and 54 communities** in the local test. Eight live Neo4j checks passed, including both retrieval modes, changed rankings, exact scores, source rows, and no-evidence handling. A Streamlit end-to-end test also rendered the graph, evidence table, and validated local-model explanation.
+
+The next iteration should test multiple cutoff windows, cohort sizes, and similarity thresholds; compare stable community descriptions with user judgments; and study whether a community view improves analyst comprehension or decision quality. GNNs are optional and are not used in this Challenge 4 result.
+
+### Source and method references
+
+- [UCI Online Retail II dataset](https://archive.ics.uci.edu/dataset/502/online+retail+ii) — original dated transactions.
+- [NetworkX Louvain documentation](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.community.louvain.louvain_communities.html) — weighted, seeded community algorithm.
+- [Neo4j GraphRAG for Python](https://neo4j.com/docs/neo4j-graphrag-python/current/) — reference architecture; this repo retains its existing reviewed Cypher templates rather than adding a new framework.
+
+## Prior AI Design preview
+
+The following sections document the October 29 preview. Its first-phase optimizer and results are retained for comparison; the weighted Louvain implementation and evaluation above supersede it.
 
 This folder contains a small AI Design experiment, based on the Challenge 4 Human Design, **and a local Neo4j GraphRAG integration**. The user-defined priorities are customer communities based on similar purchased products, a customer relationship graph, and evidence-backed descriptions of observed buying tendencies. Codex proposed a larger deterministic cohort, a weighted customer projection, a simple community prototype, a comparison chart, and a provenance-first retrieval card.
 
