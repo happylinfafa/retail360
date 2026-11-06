@@ -1,0 +1,592 @@
+[
+  {
+    "customer_id": "13309",
+    "cutoff": "2011-09-01",
+    "probability_group": 1,
+    "predicted_probability": 0.1904047682834385,
+    "observed_repurchase_60d": 1,
+    "features": {
+      "recency_days": 107.0,
+      "frequency": 1.0,
+      "monetary_gbp": 155.93,
+      "aov_gbp": 155.93,
+      "product_diversity": 13.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 1.0,
+      "mean_invoice_gap_days": null
+    },
+    "source_rows": [
+      {
+        "Invoice": "553490",
+        "StockCode": "22029",
+        "InvoiceDate": "2011-05-17 12:44:00",
+        "AmountPence": 504,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:192955"
+      },
+      {
+        "Invoice": "553490",
+        "StockCode": "21495",
+        "InvoiceDate": "2011-05-17 12:44:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:192956"
+      },
+      {
+        "Invoice": "553490",
+        "StockCode": "16161U",
+        "InvoiceDate": "2011-05-17 12:44:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:192957"
+      },
+      {
+        "Invoice": "553490",
+        "StockCode": "22037",
+        "InvoiceDate": "2011-05-17 12:44:00",
+        "AmountPence": 504,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:192958"
+      },
+      {
+        "Invoice": "553490",
+        "StockCode": "22437",
+        "InvoiceDate": "2011-05-17 12:44:00",
+        "AmountPence": 1700,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:192959"
+      }
+    ]
+  },
+  {
+    "customer_id": "14795",
+    "cutoff": "2011-09-01",
+    "probability_group": 1,
+    "predicted_probability": 0.1807938770085363,
+    "observed_repurchase_60d": 0,
+    "features": {
+      "recency_days": 67.0,
+      "frequency": 1.0,
+      "monetary_gbp": 131.45,
+      "aov_gbp": 131.45,
+      "product_diversity": 6.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 1.0,
+      "mean_invoice_gap_days": null
+    },
+    "source_rows": [
+      {
+        "Invoice": "558094",
+        "StockCode": "23284",
+        "InvoiceDate": "2011-06-26 13:04:00",
+        "AmountPence": 3180,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:240221"
+      },
+      {
+        "Invoice": "558094",
+        "StockCode": "21955",
+        "InvoiceDate": "2011-06-26 13:04:00",
+        "AmountPence": 2385,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:240222"
+      },
+      {
+        "Invoice": "558094",
+        "StockCode": "48138",
+        "InvoiceDate": "2011-06-26 13:04:00",
+        "AmountPence": 2385,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:240223"
+      },
+      {
+        "Invoice": "558094",
+        "StockCode": "48188",
+        "InvoiceDate": "2011-06-26 13:04:00",
+        "AmountPence": 2385,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:240224"
+      },
+      {
+        "Invoice": "558094",
+        "StockCode": "48111",
+        "InvoiceDate": "2011-06-26 13:04:00",
+        "AmountPence": 2385,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:240225"
+      }
+    ]
+  },
+  {
+    "customer_id": "13109",
+    "cutoff": "2011-09-01",
+    "probability_group": 2,
+    "predicted_probability": 0.2326331688545942,
+    "observed_repurchase_60d": 1,
+    "features": {
+      "recency_days": 58.0,
+      "frequency": 1.0,
+      "monetary_gbp": 369.85,
+      "aov_gbp": 369.85,
+      "product_diversity": 24.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 1.0,
+      "mean_invoice_gap_days": null
+    },
+    "source_rows": [
+      {
+        "Invoice": "559034",
+        "StockCode": "21497",
+        "InvoiceDate": "2011-07-05 14:56:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:250472"
+      },
+      {
+        "Invoice": "559034",
+        "StockCode": "21500",
+        "InvoiceDate": "2011-07-05 14:56:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:250473"
+      },
+      {
+        "Invoice": "559034",
+        "StockCode": "21499",
+        "InvoiceDate": "2011-07-05 14:56:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:250474"
+      },
+      {
+        "Invoice": "559034",
+        "StockCode": "21495",
+        "InvoiceDate": "2011-07-05 14:56:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:250475"
+      },
+      {
+        "Invoice": "559034",
+        "StockCode": "21498",
+        "InvoiceDate": "2011-07-05 14:56:00",
+        "AmountPence": 1050,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:250476"
+      }
+    ]
+  },
+  {
+    "customer_id": "14489",
+    "cutoff": "2011-09-01",
+    "probability_group": 2,
+    "predicted_probability": 0.23865550440249192,
+    "observed_repurchase_60d": 0,
+    "features": {
+      "recency_days": 108.0,
+      "frequency": 1.0,
+      "monetary_gbp": 463.38,
+      "aov_gbp": 463.38,
+      "product_diversity": 30.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 1.0,
+      "mean_invoice_gap_days": null
+    },
+    "source_rows": [
+      {
+        "Invoice": "553374",
+        "StockCode": "15036",
+        "InvoiceDate": "2011-05-16 14:51:00",
+        "AmountPence": 2988,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:191506"
+      },
+      {
+        "Invoice": "553374",
+        "StockCode": "79321",
+        "InvoiceDate": "2011-05-16 14:51:00",
+        "AmountPence": 2300,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:191507"
+      },
+      {
+        "Invoice": "553374",
+        "StockCode": "21937",
+        "InvoiceDate": "2011-05-16 14:51:00",
+        "AmountPence": 1475,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:191508"
+      },
+      {
+        "Invoice": "553374",
+        "StockCode": "21936",
+        "InvoiceDate": "2011-05-16 14:51:00",
+        "AmountPence": 1475,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:191509"
+      },
+      {
+        "Invoice": "553374",
+        "StockCode": "71459",
+        "InvoiceDate": "2011-05-16 14:51:00",
+        "AmountPence": 1020,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:191510"
+      }
+    ]
+  },
+  {
+    "customer_id": "13005",
+    "cutoff": "2011-09-01",
+    "probability_group": 3,
+    "predicted_probability": 0.3137504633347039,
+    "observed_repurchase_60d": 0,
+    "features": {
+      "recency_days": 74.0,
+      "frequency": 2.0,
+      "monetary_gbp": 513.7,
+      "aov_gbp": 256.85,
+      "product_diversity": 21.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 2.0,
+      "mean_invoice_gap_days": 72.88958333333333
+    },
+    "source_rows": [
+      {
+        "Invoice": "557261",
+        "StockCode": "22644",
+        "InvoiceDate": "2011-06-19 10:53:00",
+        "AmountPence": 1740,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:231291"
+      },
+      {
+        "Invoice": "557261",
+        "StockCode": "21556",
+        "InvoiceDate": "2011-06-19 10:53:00",
+        "AmountPence": 1530,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:231292"
+      },
+      {
+        "Invoice": "557261",
+        "StockCode": "22138",
+        "InvoiceDate": "2011-06-19 10:53:00",
+        "AmountPence": 1485,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:231293"
+      },
+      {
+        "Invoice": "557261",
+        "StockCode": "22139",
+        "InvoiceDate": "2011-06-19 10:53:00",
+        "AmountPence": 1485,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:231294"
+      },
+      {
+        "Invoice": "557261",
+        "StockCode": "22617",
+        "InvoiceDate": "2011-06-19 10:53:00",
+        "AmountPence": 1485,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:231295"
+      }
+    ]
+  },
+  {
+    "customer_id": "14400",
+    "cutoff": "2011-09-01",
+    "probability_group": 3,
+    "predicted_probability": 0.2515774697063197,
+    "observed_repurchase_60d": 0,
+    "features": {
+      "recency_days": 50.0,
+      "frequency": 1.0,
+      "monetary_gbp": 574.7,
+      "aov_gbp": 574.7,
+      "product_diversity": 25.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 1.0,
+      "mean_invoice_gap_days": null
+    },
+    "source_rows": [
+      {
+        "Invoice": "559922",
+        "StockCode": "23252",
+        "InvoiceDate": "2011-07-13 15:50:00",
+        "AmountPence": 1500,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:262555"
+      },
+      {
+        "Invoice": "559922",
+        "StockCode": "23251",
+        "InvoiceDate": "2011-07-13 15:50:00",
+        "AmountPence": 9984,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:262556"
+      },
+      {
+        "Invoice": "559922",
+        "StockCode": "23188",
+        "InvoiceDate": "2011-07-13 15:50:00",
+        "AmountPence": 1980,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:262557"
+      },
+      {
+        "Invoice": "559922",
+        "StockCode": "23197",
+        "InvoiceDate": "2011-07-13 15:50:00",
+        "AmountPence": 6000,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:262558"
+      },
+      {
+        "Invoice": "559922",
+        "StockCode": "21232",
+        "InvoiceDate": "2011-07-13 15:50:00",
+        "AmountPence": 1500,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:262559"
+      }
+    ]
+  },
+  {
+    "customer_id": "12836",
+    "cutoff": "2011-09-01",
+    "probability_group": 4,
+    "predicted_probability": 0.38618438780013525,
+    "observed_repurchase_60d": 1,
+    "features": {
+      "recency_days": 38.0,
+      "frequency": 2.0,
+      "monetary_gbp": 1265.84,
+      "aov_gbp": 632.92,
+      "product_diversity": 82.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 2.0,
+      "mean_invoice_gap_days": 82.00972222222222
+    },
+    "source_rows": [
+      {
+        "Invoice": "561204",
+        "StockCode": "23298",
+        "InvoiceDate": "2011-07-25 15:22:00",
+        "AmountPence": 1485,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:277993"
+      },
+      {
+        "Invoice": "561204",
+        "StockCode": "22654",
+        "InvoiceDate": "2011-07-25 15:22:00",
+        "AmountPence": 1190,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:277994"
+      },
+      {
+        "Invoice": "561204",
+        "StockCode": "21735",
+        "InvoiceDate": "2011-07-25 15:22:00",
+        "AmountPence": 2550,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:277995"
+      },
+      {
+        "Invoice": "561204",
+        "StockCode": "22814",
+        "InvoiceDate": "2011-07-25 15:22:00",
+        "AmountPence": 1008,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:277996"
+      },
+      {
+        "Invoice": "561204",
+        "StockCode": "22029",
+        "InvoiceDate": "2011-07-25 15:22:00",
+        "AmountPence": 504,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:277997"
+      }
+    ]
+  },
+  {
+    "customer_id": "14245",
+    "cutoff": "2011-09-01",
+    "probability_group": 4,
+    "predicted_probability": 0.3917216516561797,
+    "observed_repurchase_60d": 0,
+    "features": {
+      "recency_days": 120.0,
+      "frequency": 2.0,
+      "monetary_gbp": 1693.45,
+      "aov_gbp": 846.73,
+      "product_diversity": 107.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 2.0,
+      "mean_invoice_gap_days": 43.91597222222222
+    },
+    "source_rows": [
+      {
+        "Invoice": "551727",
+        "StockCode": "21577",
+        "InvoiceDate": "2011-05-04 08:40:00",
+        "AmountPence": 1350,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:173911"
+      },
+      {
+        "Invoice": "551727",
+        "StockCode": "22277",
+        "InvoiceDate": "2011-05-04 08:40:00",
+        "AmountPence": 1260,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:173912"
+      },
+      {
+        "Invoice": "551727",
+        "StockCode": "84849D",
+        "InvoiceDate": "2011-05-04 08:40:00",
+        "AmountPence": 2028,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:173913"
+      },
+      {
+        "Invoice": "551727",
+        "StockCode": "84913B",
+        "InvoiceDate": "2011-05-04 08:40:00",
+        "AmountPence": 1860,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:173914"
+      },
+      {
+        "Invoice": "551727",
+        "StockCode": "84913A",
+        "InvoiceDate": "2011-05-04 08:40:00",
+        "AmountPence": 1860,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:173915"
+      }
+    ]
+  },
+  {
+    "customer_id": "13001",
+    "cutoff": "2011-09-01",
+    "probability_group": 5,
+    "predicted_probability": 0.8131716301805072,
+    "observed_repurchase_60d": 0,
+    "features": {
+      "recency_days": 59.0,
+      "frequency": 7.0,
+      "monetary_gbp": 5113.78,
+      "aov_gbp": 730.54,
+      "product_diversity": 107.0,
+      "orders_last_30d": 0.0,
+      "active_purchase_days": 7.0,
+      "mean_invoice_gap_days": 19.85625
+    },
+    "source_rows": [
+      {
+        "Invoice": "558902",
+        "StockCode": "47566",
+        "InvoiceDate": "2011-07-04 16:08:00",
+        "AmountPence": 20750,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:249304"
+      },
+      {
+        "Invoice": "558902",
+        "StockCode": "22178",
+        "InvoiceDate": "2011-07-04 16:08:00",
+        "AmountPence": 10176,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:249305"
+      },
+      {
+        "Invoice": "558902",
+        "StockCode": "21621",
+        "InvoiceDate": "2011-07-04 16:08:00",
+        "AmountPence": 5100,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:249306"
+      },
+      {
+        "Invoice": "558902",
+        "StockCode": "47590B",
+        "InvoiceDate": "2011-07-04 16:08:00",
+        "AmountPence": 3270,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:249307"
+      },
+      {
+        "Invoice": "558902",
+        "StockCode": "47590A",
+        "InvoiceDate": "2011-07-04 16:08:00",
+        "AmountPence": 3270,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:249308"
+      }
+    ]
+  },
+  {
+    "customer_id": "14397",
+    "cutoff": "2011-09-01",
+    "probability_group": 5,
+    "predicted_probability": 0.805828260816803,
+    "observed_repurchase_60d": 1,
+    "features": {
+      "recency_days": 10.0,
+      "frequency": 9.0,
+      "monetary_gbp": 856.0,
+      "aov_gbp": 95.11,
+      "product_diversity": 13.0,
+      "orders_last_30d": 2.0,
+      "active_purchase_days": 9.0,
+      "mean_invoice_gap_days": 12.994097222222225
+    },
+    "source_rows": [
+      {
+        "Invoice": "563982",
+        "StockCode": "22178",
+        "InvoiceDate": "2011-08-22 11:17:00",
+        "AmountPence": 6000,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:308453"
+      },
+      {
+        "Invoice": "563982",
+        "StockCode": "82484",
+        "InvoiceDate": "2011-08-22 11:17:00",
+        "AmountPence": 6360,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:308454"
+      },
+      {
+        "Invoice": "563982",
+        "StockCode": "23145",
+        "InvoiceDate": "2011-08-22 11:17:00",
+        "AmountPence": 1140,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:308455"
+      },
+      {
+        "Invoice": "563982",
+        "StockCode": "23144",
+        "InvoiceDate": "2011-08-22 11:17:00",
+        "AmountPence": 996,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:308456"
+      },
+      {
+        "Invoice": "563982",
+        "StockCode": "84946",
+        "InvoiceDate": "2011-08-22 11:17:00",
+        "AmountPence": 3000,
+        "Country": "United Kingdom",
+        "RowID": "Year 2010-2011:308457"
+      }
+    ]
+  }
+]

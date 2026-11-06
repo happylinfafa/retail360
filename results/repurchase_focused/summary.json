@@ -1,0 +1,52 @@
+{
+  "question": "Can past purchases predict whether an existing customer buys again within 60 days?",
+  "source": "UCI Online Retail II, doi:10.24432/C5CG6D",
+  "raw_rows": 1067371,
+  "history_days": 180,
+  "outcome_days": 60,
+  "train_rows": 9659,
+  "validation_rows": 2659,
+  "test_rows": 2772,
+  "selected_model": "all_history_logistic",
+  "selected_features": [
+    "recency_days",
+    "frequency",
+    "monetary_gbp",
+    "aov_gbp",
+    "product_diversity",
+    "orders_last_30d",
+    "active_purchase_days",
+    "mean_invoice_gap_days"
+  ],
+  "selection": {
+    "selected_model": "all_history_logistic",
+    "criterion": "Highest validation average precision among non-graph candidates.",
+    "test_used_for_selection": false,
+    "protocol": "repurchase-180d-60d-v1",
+    "manifest_sha256": "addc01858f50fc7610bf618a97691a846b2503704bd69821ad779803d442bbfb",
+    "scope_note": "The focused scope was chosen after earlier graph-model test results were viewed; treat this focused comparison as exploratory, not a new untouched confirmation."
+  },
+  "test_selected_model": {
+    "model": "all_history_logistic",
+    "split": "test",
+    "features": "recency_days, frequency, monetary_gbp, aov_gbp, product_diversity, orders_last_30d, active_purchase_days, mean_invoice_gap_days",
+    "n": 2772,
+    "positive_rate": 0.4906204906204906,
+    "average_precision": 0.7551114410930364,
+    "roc_auc": 0.7347983669388436,
+    "f1": 0.6776803776129467,
+    "precision": 0.6257783312577833,
+    "recall": 0.7389705882352942,
+    "brier": 0.221914278131097,
+    "precision_top_10pct": 0.9280575539568345,
+    "lift_top_10pct": 1.8915996614473127,
+    "threshold": 0.25
+  },
+  "demo_customer_count": 10,
+  "limitations": [
+    "Historical backtest, not a current-day forecast.",
+    "One retailer and one held-out test cutoff.",
+    "No causal claim about marketing actions.",
+    "Public app examples are a small display sample, not the full test cohort."
+  ]
+}
