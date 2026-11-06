@@ -1,7 +1,39 @@
-# Retail360 — Challenge 2
+# Retail360 — 60-day repeat-purchase prediction
 
-🚀 Try the live app here: [Retail360 Streamlit App](https://retail360-challenge2-nlavk4zsab8qmxgkvbfmwy.streamlit.app/)
-A small Streamlit application for retail analysts to inspect customer behavior and review an evidence-grounded AI explanation.
+**Research question:** Can past transactions predict whether an existing
+customer buys again within 60 days? The focused study uses a frozen 180-day
+history, chronological train/validation/test snapshots, and simple tabular
+models. It compares a prior-rate baseline, RFM-only models, and models with
+more historical purchase features. No graph feature or LLM is required for
+the focused prediction.
+
+🚀 [Open the Streamlit application](https://retail360-challenge2-nlavk4zsab8qmxgkvbfmwy.streamlit.app/)
+and select **Repurchase** for the focused study. Its public-friendly page uses
+aggregate results and 10 precomputed real customer examples with invoice and
+worksheet-row provenance. It is a historical demonstration, not live scoring.
+The complete local run provides all 2,772 test customers and their histories.
+See the self-contained [research methods and results](docs/focused_repurchase.md).
+
+To reproduce the focused study from the official UCI workbook:
+
+```sh
+python scripts/prepare_repurchase.py /path/to/online_retail_II.xlsx
+python scripts/train_focused_repurchase.py
+streamlit run app.py
+```
+
+The test AP of the validation-selected focused model is **0.7551**, versus
+**0.4906** for the prior-rate baseline. Its predicted probabilities are
+under-calibrated on this held-out date; consult the calibration chart before
+interpreting an individual score. The focused scope was chosen after earlier
+graph experiments were inspected, so this comparison is exploratory rather
+than a fresh confirmatory test. Full data and fitted models remain local.
+
+## Earlier exploratory work
+
+The remainder of this README documents previously completed customer evidence,
+graph, and GraphRAG tasks. They remain available but are not part of the
+focused repeat-purchase model.
 
 ## Challenge 3 GraphRAG prototype
 

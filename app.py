@@ -13,9 +13,13 @@ st.set_page_config(page_title='Retail360 | Customer evidence',page_icon='🛍️
 def data():
     return load_rows()
 
-st.title('Retail360')
-st.write('Understand a customer’s purchases. Check the evidence. Review the explanation.')
-st.caption('Challenge 2 · Customer behavior evidence explorer · UCI Online Retail II')
+st.title('Retail360 · 60-day repeat-purchase prediction')
+st.write('Main research question: can a customer’s past purchases predict whether they buy again within 60 days?')
+st.page_link('pages/2_Repurchase.py', label='Open the prediction study, model comparisons, and real customer evidence', icon='📊')
+st.caption('The prediction page uses a 180-day history and a separate future 60-day outcome. It is a historical backtest, not a current-day forecast.')
+st.divider()
+st.subheader('Earlier customer purchase explorer')
+st.caption('This descriptive tool is retained for invoice inspection. Its local-language-model explanation is separate from the repeat-purchase prediction study.')
 rows=data()
 with st.sidebar:
     st.header('Analysis settings')
