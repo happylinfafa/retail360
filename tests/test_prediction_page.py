@@ -9,7 +9,8 @@ def test_prediction_evidence_and_review_reset():
         pytest.skip('Run the focused training pipeline before this integration test.')
     app = AppTest.from_file(str(root/'pages/2_Repurchase.py'), default_timeout=30).run()
     assert not app.exception
-    assert len(app.metric) == 4 and len(app.dataframe) >= 3
+    assert len(app.metric) == 5 and len(app.dataframe) >= 3
+    assert any(metric.label == 'Validation-calibrated estimate' for metric in app.metric)
     app.radio(key='focused_review').set_value('Reject / investigate').run()
     app.text_area(key='focused_note').input('Check source purchase rows.').run()
     customers = app.selectbox(key='focused_customer').options
@@ -25,5 +26,6 @@ def test_public_demo_runs_without_local_model_files(monkeypatch):
     app = AppTest.from_file(str(root/'pages/2_Repurchase.py'), default_timeout=30).run()
     assert not app.exception
     assert len(app.selectbox(key='focused_customer').options) == 10
-    assert len(app.metric) == 4
+    assert len(app.metric) == 5
+    assert any(metric.label == 'Validation-calibrated estimate' for metric in app.metric)
     assert len(app.dataframe) >= 3
