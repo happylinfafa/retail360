@@ -1,0 +1,4 @@
+cutoff,eligible_customers,review_capacity,rfm_repeat_buyers_found,full_repeat_buyers_found,incremental_repeat_buyers_found,rfm_precision_at_capacity,full_precision_at_capacity,customers_selected_by_both,customers_selected_only_by_full,scope
+2011-08-01,2771,278,247,248,1,0.8884892086330936,0.8920863309352518,248,30,Historical fixed-capacity ranking; no intervention or causal lift measured.
+2011-09-01,2772,278,256,258,2,0.920863309352518,0.9280575539568345,245,33,Historical fixed-capacity ranking; no intervention or causal lift measured.
+2011-10-01,2925,293,268,269,1,0.9146757679180887,0.9180887372013652,261,32,Historical fixed-capacity ranking; no intervention or causal lift measured.
