@@ -1,0 +1,8 @@
+{
+  "model": "all_history_logistic",
+  "fit_cutoff": "2011-06-01",
+  "method": "Platt logistic calibration on validation log-odds",
+  "slope": 1.1654483836644025,
+  "intercept": 0.44941924681604534,
+  "warning": "Exploratory adjustment; still underpredicts in the later test groups."
+}

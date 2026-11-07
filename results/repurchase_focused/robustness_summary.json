@@ -1,0 +1,66 @@
+{
+  "method": "Frozen RFM and selected full logistic models; customer-row paired bootstrap (2,000 resamples, seed 5588); Platt calibration fit on 2011-06-01 validation predictions only.",
+  "scope": "Exploratory temporal sensitivity, not independent confirmation. Aug and Oct 60-day label windows do not overlap; customers and their histories can overlap. Sep results were viewed previously.",
+  "source_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+  "validation_n": 2659,
+  "calibration_method": "Logistic regression on validation log-odds",
+  "calibration_fit_cutoff": "2011-06-01",
+  "new_cutoffs": [
+    "2011-08-01",
+    "2011-10-01"
+  ],
+  "bootstrap_repeats": 2000,
+  "results": [
+    {
+      "cutoff": "2011-08-01",
+      "n": 2771,
+      "positive_rate": 0.4435221941537351,
+      "history_start": "2011-02-02",
+      "label_end_exclusive": "2011-09-30",
+      "rfm_ap": 0.7254256640362611,
+      "all_history_ap": 0.7328385908694781,
+      "ap_difference": 0.007412926833217037,
+      "ap_difference_ci_low": 0.002200062566898253,
+      "ap_difference_ci_high": 0.012832476548098893,
+      "raw_brier": 0.20583165353885338,
+      "calibrated_brier": 0.19832747199666997,
+      "raw_mean_probability": 0.36157153428249517,
+      "calibrated_mean_probability": 0.42796464093443864,
+      "precision_top_10pct": 0.8920863309352518
+    },
+    {
+      "cutoff": "2011-09-01",
+      "n": 2772,
+      "positive_rate": 0.4906204906204906,
+      "history_start": "2011-03-05",
+      "label_end_exclusive": "2011-10-31",
+      "rfm_ap": 0.7501908212310676,
+      "all_history_ap": 0.7551114410930364,
+      "ap_difference": 0.004920619861968789,
+      "ap_difference_ci_low": 0.0006443424795930825,
+      "ap_difference_ci_high": 0.009435659785926734,
+      "raw_brier": 0.221914278131097,
+      "calibrated_brier": 0.20910648972662355,
+      "raw_mean_probability": 0.3648309509515934,
+      "calibrated_mean_probability": 0.4314316197801656,
+      "precision_top_10pct": 0.9280575539568345
+    },
+    {
+      "cutoff": "2011-10-01",
+      "n": 2925,
+      "positive_rate": 0.5254700854700854,
+      "history_start": "2011-04-04",
+      "label_end_exclusive": "2011-11-30",
+      "rfm_ap": 0.7554991873920389,
+      "all_history_ap": 0.760141066785734,
+      "ap_difference": 0.004641879393695092,
+      "ap_difference_ci_low": 0.00020396045421567648,
+      "ap_difference_ci_high": 0.008846222353827616,
+      "raw_brier": 0.2353045015840404,
+      "calibrated_brier": 0.21886130775137894,
+      "raw_mean_probability": 0.37230806239313363,
+      "calibrated_mean_probability": 0.4405930494420554,
+      "precision_top_10pct": 0.9180887372013652
+    }
+  ]
+}
