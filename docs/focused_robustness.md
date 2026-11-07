@@ -41,6 +41,34 @@ probabilities still underestimate the observed rate in the five September
 score groups. Use scores for historical ranking and human review, not as exact
 individual odds or a causal estimate of marketing impact.
 
+## Fixed review capacity and cohort dependence
+
+To assess practical ranking value, both fixed models select the highest-scoring
+10% of eligible customers at each cutoff. The outcome count is the number of
+these selected customers who actually repurchased during the next 60 days.
+The models use the same capacity and labels; no marketing intervention occurs.
+
+| Cutoff | Review capacity | Repeat buyers found by RFM | Repeat buyers found by full model | Net difference |
+|---|---:|---:|---:|---:|
+| 2011-08-01 | 278 | 247 | 248 | +1 |
+| 2011-09-01 | 278 | 256 | 258 | +2 |
+| 2011-10-01 | 293 | 268 | 269 | +1 |
+
+At the September cutoff, the full model selects 33 customers outside the RFM
+top 278, but finds only **two additional actual repeat buyers** overall. Thus
+the small AP advantage yields a small observed gain at this review capacity.
+This is a historical prioritization comparison, not evidence that contacting
+the selected customers would increase sales. The exact customer selections and
+per-cutoff counts can be reproduced with `decision_utility.csv`.
+
+The three windows do not provide three independent replications. August and
+October share **2,395 customers**, or **86.4% of the August cohort**, even
+though their future 60-day label windows do not overlap. The pairwise counts
+are in `cohort_overlap.csv`. The per-window bootstrap intervals do not account
+for this cross-window dependence or the earlier post hoc choice of project
+scope. Stronger confirmation requires a newly specified, previously unseen
+period or an external retailer with the same outcome definition.
+
 The public Streamlit application contains **10 precomputed real customer
 examples** with worksheet row IDs and invoices. It does not score new customers
 live. The research metrics use all 2,772 customers at the September test
