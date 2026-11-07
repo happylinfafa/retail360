@@ -19,6 +19,7 @@ To reproduce the focused study from the official UCI workbook:
 ```sh
 python scripts/prepare_repurchase.py /path/to/online_retail_II.xlsx
 python scripts/train_focused_repurchase.py
+python scripts/evaluate_focused_robustness.py /path/to/online_retail_II.xlsx
 streamlit run app.py
 ```
 
@@ -28,6 +29,14 @@ under-calibrated on this held-out date; consult the calibration chart before
 interpreting an individual score. The focused scope was chosen after earlier
 graph experiments were inspected, so this comparison is exploratory rather
 than a fresh confirmatory test. Full data and fitted models remain local.
+
+Additional August and October 2011 cutoffs show small positive AP differences
+between the fixed all-history and RFM models. A paired customer bootstrap
+quantifies within-cutoff uncertainty; a validation-fitted calibration mapping
+reduces Brier error but does not eliminate underprediction. These checks are
+not independent external confirmation. See the [full temporal sensitivity and
+calibration protocol](docs/focused_robustness.md) and aggregate CSV results in
+`results/repurchase_focused/`.
 
 ## Earlier exploratory work
 
