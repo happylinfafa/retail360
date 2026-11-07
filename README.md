@@ -37,6 +37,11 @@ reduces Brier error but does not eliminate underprediction. These checks are
 not independent external confirmation. See the [full temporal sensitivity and
 calibration protocol](docs/focused_robustness.md) and aggregate CSV results in
 `results/repurchase_focused/`.
+At a fixed top-10% review capacity, the full model found only 1, 2, and 1
+additional actual repeat buyers compared with RFM at the August, September,
+and October cutoffs. August and October shared 2,395 customers, so these are
+dependent sensitivity checks rather than three independent tests. No
+marketing-treatment effect was evaluated.
 
 ## Earlier exploratory work
 
