@@ -68,6 +68,8 @@ def main():
 
     transactions, source_audit = read_workbook(args.workbook, protocol['source_sha256'])
     rows = []
+    decision_rows = []
+    cohorts = {}
     september = None
     for cutoff in ['2011-08-01', '2011-09-01', '2011-10-01']:
         features, labels, _, _, _, audit = build_snapshot(transactions, cutoff, protocol)
@@ -77,6 +79,7 @@ def main():
         basic = rfm.predict_proba(feature_input(frame, RFM))[:, 1]
         advanced = full.predict_proba(feature_input(frame, full_columns))[:, 1]
         calibrated = calibrator.predict_proba(logit(advanced))[:, 1]
+        cohorts[cutoff] = set(frame.CustomerID.astype(str))
         if cutoff == '2011-09-01':
             recorded = pd.read_csv(OUT/'metrics.csv')
             reference = float(recorded.query("model == 'all_history_logistic' and split == 'test'").average_precision.iloc[0])
@@ -86,6 +89,22 @@ def main():
                                       'rfm': basic, 'full': advanced, 'calibrated': calibrated})
         ci = paired_ap_interval(y, basic, advanced)
         top = np.argsort(-advanced, kind='stable')[:int(np.ceil(.1*len(y)))]
+        basic_top = np.argsort(-basic, kind='stable')[:len(top)]
+        full_ids = set(frame.iloc[top].CustomerID.astype(str))
+        basic_ids = set(frame.iloc[basic_top].CustomerID.astype(str))
+        basic_hits = int(y[basic_top].sum())
+        full_hits = int(y[top].sum())
+        decision_rows.append({
+            'cutoff': cutoff, 'eligible_customers': len(y), 'review_capacity': len(top),
+            'rfm_repeat_buyers_found': basic_hits,
+            'full_repeat_buyers_found': full_hits,
+            'incremental_repeat_buyers_found': full_hits-basic_hits,
+            'rfm_precision_at_capacity': float(y[basic_top].mean()),
+            'full_precision_at_capacity': float(y[top].mean()),
+            'customers_selected_by_both': len(full_ids & basic_ids),
+            'customers_selected_only_by_full': len(full_ids-basic_ids),
+            'scope': 'Historical fixed-capacity ranking; no intervention or causal lift measured.'
+        })
         rows.append({
             'cutoff': cutoff, 'n': len(y), 'positive_rate': float(y.mean()),
             'history_start': audit['history_start_inclusive'],
@@ -107,6 +126,19 @@ def main():
     result = pd.DataFrame(rows)
     # Save only aggregate results. Customer predictions and fitted models stay local.
     result.to_csv(OUT/'temporal_robustness.csv', index=False)
+    pd.DataFrame(decision_rows).to_csv(OUT/'decision_utility.csv', index=False)
+    cohort_rows = []
+    cutoffs = list(cohorts)
+    for i, first in enumerate(cutoffs):
+        for second in cutoffs[i+1:]:
+            shared = len(cohorts[first] & cohorts[second])
+            cohort_rows.append({'first_cutoff': first, 'second_cutoff': second,
+                                'shared_customers': shared,
+                                'first_customers': len(cohorts[first]),
+                                'second_customers': len(cohorts[second]),
+                                'overlap_share_of_first': shared/len(cohorts[first]),
+                                'jaccard': shared/len(cohorts[first] | cohorts[second])})
+    pd.DataFrame(cohort_rows).to_csv(OUT/'cohort_overlap.csv', index=False)
     calibration_params = {
         'model': 'all_history_logistic', 'fit_cutoff': '2011-06-01',
         'method': 'Platt logistic calibration on validation log-odds',
