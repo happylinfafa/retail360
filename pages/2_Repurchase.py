@@ -35,6 +35,14 @@ def read_robustness():
             json.loads(paths[2].read_text(encoding='utf-8')))
 
 
+@st.cache_data
+def read_decision_evidence():
+    paths = [PUBLIC/'decision_utility.csv', PUBLIC/'cohort_overlap.csv']
+    if not all(path.exists() for path in paths):
+        return None
+    return pd.read_csv(paths[0]), pd.read_csv(paths[1])
+
+
 def calibrated_probability(raw, params):
     value = min(max(float(raw), 1e-6), 1-1e-6)
     logit = math.log(value/(1-value))
@@ -61,6 +69,7 @@ if not (PUBLIC/'summary.json').exists():
 
 summary, metrics, calibration, slices, examples = read_public()
 robustness = read_robustness()
+decision_evidence = read_decision_evidence()
 local_available = ((LOCAL/'customer_predictions.csv').exists()
                    and os.getenv('RETAIL360_PUBLIC_DEMO_ONLY') != '1')
 
@@ -109,6 +118,22 @@ if robustness is not None:
                'each cutoff. August and October have non-overlapping 60-day outcome windows, '
                'but customers and histories can overlap; September was examined previously. '
                'These checks are temporal sensitivity evidence, not independent external confirmation.')
+
+if decision_evidence is not None:
+    utility, overlap = decision_evidence
+    st.subheader('What changes with a fixed review capacity?')
+    st.write('Suppose an analyst can review only the top 10% of eligible customers. '
+             'The two models use the same number of review slots at each cutoff.')
+    st.dataframe(utility[['cutoff', 'review_capacity', 'rfm_repeat_buyers_found',
+                          'full_repeat_buyers_found', 'incremental_repeat_buyers_found',
+                          'customers_selected_only_by_full']],
+                 hide_index=True, width='stretch')
+    st.caption('The full model found only 1, 2, and 1 additional actual repeat buyers '
+               'at the August, September, and October cutoffs. This is a historical '
+               'ranking comparison, not an estimate of the effect of contacting anyone.')
+    st.write('The evaluation windows share many of the same customers:')
+    st.dataframe(overlap[['first_cutoff', 'second_cutoff', 'shared_customers',
+                          'overlap_share_of_first']], hide_index=True, width='stretch')
 
 st.subheader('2 · Check whether the probabilities are reliable')
 if robustness is not None:
@@ -179,8 +204,9 @@ else:
     score1, score2 = st.columns(2)
     score1.metric('Original 2011 model score', f'{probability:.1%}')
     score2.metric('Validation-calibrated estimate', f'{adjusted:.1%}')
-st.caption('Calibration improves aggregate error, but these scores are not guarantees or '
-           'a measured marketing effect. Review the historical features and source rows below.')
+st.warning('Use this score for historical ranking and evidence review. Even after calibration, '
+           'the model underestimates observed repeat-purchase rates, so an individual score '
+           'is not a reliable exact probability or a measured marketing effect.')
 st.write('Evidence path: customer', choice, '→ prior 180-day invoices → historical '
          'features → model score → human review. Future purchases are revealed only for evaluation.')
 st.dataframe(pd.DataFrame([{'Feature': k, 'Historical value': v}
