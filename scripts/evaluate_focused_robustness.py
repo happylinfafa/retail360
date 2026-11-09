@@ -69,6 +69,7 @@ def main():
     transactions, source_audit = read_workbook(args.workbook, protocol['source_sha256'])
     rows = []
     decision_rows = []
+    capacity_rows = []
     cohorts = {}
     september = None
     for cutoff in ['2011-08-01', '2011-09-01', '2011-10-01']:
@@ -105,6 +106,18 @@ def main():
             'customers_selected_only_by_full': len(full_ids-basic_ids),
             'scope': 'Historical fixed-capacity ranking; no intervention or causal lift measured.'
         })
+        for share in [.05, .10, .20]:
+            slots = int(np.ceil(share * len(y)))
+            basic_selected = np.argsort(-basic, kind='stable')[:slots]
+            full_selected = np.argsort(-advanced, kind='stable')[:slots]
+            capacity_rows.append({
+                'cutoff': cutoff, 'capacity_share': share,
+                'eligible_customers': len(y), 'review_capacity': slots,
+                'rfm_repeat_buyers_found': int(y[basic_selected].sum()),
+                'full_repeat_buyers_found': int(y[full_selected].sum()),
+                'incremental_repeat_buyers_found': int(y[full_selected].sum() - y[basic_selected].sum()),
+                'scope': 'Historical ranking comparison; no marketing intervention measured.',
+            })
         rows.append({
             'cutoff': cutoff, 'n': len(y), 'positive_rate': float(y.mean()),
             'history_start': audit['history_start_inclusive'],
@@ -127,6 +140,7 @@ def main():
     # Save only aggregate results. Customer predictions and fitted models stay local.
     result.to_csv(OUT/'temporal_robustness.csv', index=False)
     pd.DataFrame(decision_rows).to_csv(OUT/'decision_utility.csv', index=False)
+    pd.DataFrame(capacity_rows).to_csv(OUT/'capacity_sensitivity.csv', index=False)
     cohort_rows = []
     cutoffs = list(cohorts)
     for i, first in enumerate(cutoffs):
