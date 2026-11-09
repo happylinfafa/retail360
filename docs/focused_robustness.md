@@ -61,6 +61,20 @@ This is a historical prioritization comparison, not evidence that contacting
 the selected customers would increase sales. The exact customer selections and
 per-cutoff counts can be reproduced with `decision_utility.csv`.
 
+The conclusion changes with the review capacity. Using the same fixed models
+and September labels, the full model finds no additional buyers when reviewing
+the top 5%, two more at 10%, and one fewer at 20%:
+
+| September capacity | Customers reviewed | RFM buyers found | Full-model buyers found | Difference |
+|---|---:|---:|---:|---:|
+| Top 5% | 139 | 134 | 134 | 0 |
+| Top 10% | 278 | 256 | 258 | +2 |
+| Top 20% | 555 | 458 | 457 | -1 |
+
+The same comparison for all three cutoffs is in `capacity_sensitivity.csv`.
+These retrospective counts measure ranking at a chosen capacity, not the
+incremental sales that a marketing intervention would cause.
+
 The three windows do not provide three independent replications. August and
 October share **2,395 customers**, or **86.4% of the August cohort**, even
 though their future 60-day label windows do not overlap. The pairwise counts
