@@ -1,5 +1,10 @@
 # Retail360 — 60-day repeat-purchase prediction
 
+**Author:** Xin Long · University of Missouri–Kansas City  
+**Course:** CS 5588 Data Science Capstone · Instructor: Yugyung Lee  
+**Project poster:** [48 × 36-inch PDF](docs/Retail360_Project_Poster.pdf)  
+**Demo preparation:** [three-minute recording script](docs/demo_video_script.md)
+
 **Research question:** Can past transactions predict whether an existing
 customer buys again within 60 days? The focused study uses a frozen 180-day
 history, chronological train/validation/test snapshots, and simple tabular
@@ -42,6 +47,9 @@ additional actual repeat buyers compared with RFM at the August, September,
 and October cutoffs. August and October shared 2,395 customers, so these are
 dependent sensitivity checks rather than three independent tests. No
 marketing-treatment effect was evaluated.
+The September gain depends on review capacity: the full model finds 0 more
+buyers at the top 5%, 2 more at the top 10%, and 1 fewer at the top 20%.
+These measured results are in `results/repurchase_focused/capacity_sensitivity.csv`.
 
 ## Earlier exploratory work
 
