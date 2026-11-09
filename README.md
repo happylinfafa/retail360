@@ -1,9 +1,10 @@
 # Retail360 — 60-day repeat-purchase prediction
 
-**Author:** Xin Long · University of Missouri–Kansas City  
-**Course:** CS 5588 Data Science Capstone · Instructor: Yugyung Lee  
-**Project poster:** [48 × 36-inch PDF](docs/Retail360_Project_Poster.pdf)  
-**Demo preparation:** [three-minute recording script](docs/demo_video_script.md)
+**Author:** Xin Long · University of Missouri–Kansas City
+**Project poster:** [48 × 36-inch PDF](docs/Retail360_Project_Poster.pdf)
+**Demo preparation:** [optional three-minute recording outline](docs/demo_video_script.md). The final video will be recorded separately.
+
+**Acknowledgements:** Thanks to CS 5588 — Data Science Capstone and Instructor: Yugyung Lee.
 
 **Research question:** Can past transactions predict whether an existing
 customer buys again within 60 days? The focused study uses a frozen 180-day
@@ -12,12 +13,21 @@ models. It compares a prior-rate baseline, RFM-only models, and models with
 more historical purchase features. No graph feature or LLM is required for
 the focused prediction.
 
-🚀 [Open the Streamlit application](https://retail360-challenge2-nlavk4zsab8qmxgkvbfmwy.streamlit.app/)
-and select **Repurchase** for the focused study. Its public-friendly page uses
+🚀 [Open the Streamlit application](https://retail360-challenge2-nlavk4zsab8qmxgkvbfmwy.streamlit.app/).
+The homepage opens the focused **Repurchase** study directly. It uses
 aggregate results and 10 precomputed real customer examples with invoice and
 worksheet-row provenance. It is a historical demonstration, not live scoring.
 The complete local run provides all 2,772 test customers and their histories.
 See the self-contained [research methods and results](docs/focused_repurchase.md).
+
+### What to show in a three-minute demo
+
+1. Compare the held-out test results: average precision (AP) is **0.491** for the overall-rate baseline, **0.750** for RFM, and **0.755** for the full-history logistic model.
+2. At a fixed 10% review capacity, the full model finds **258** actual repeat buyers versus **256** for RFM among the same **278** customers reviewed. The gain is small and varies with capacity.
+3. Scroll to **Review a real customer**. Select customer **14397**, inspect historical features and invoice/source-row evidence, then choose **Accept for analysis** or **Reject / investigate** and download the review.
+4. Explain the boundary: the public app has **10 stored historical cases**. It does not score arbitrary new customers, estimate campaign effects, or provide exact individual odds.
+
+![Focused prediction application](docs/screenshots/repurchase_demo.png)
 
 To reproduce the focused study from the official UCI workbook:
 
@@ -73,7 +83,7 @@ python scripts/train_models.py
 streamlit run app.py
 ```
 
-Open **Repurchase** in Streamlit's page navigation to inspect historical probabilities, model comparison, graph evidence, customer groups, and original transaction rows. The graph feature measures the historical customer degree of the products a customer bought. Details and limitations are in [model results](docs/model_results.md) and [the frozen protocol](docs/repurchase_protocol.md). Generated full-data benchmark and model files remain local and are excluded from Git.
+This older graph-feature experiment is documented in [model results](docs/model_results.md) and [the frozen protocol](docs/repurchase_protocol.md). The graph feature measured the historical customer degree of purchased products. The focused public prediction page does not use that feature. Generated full-data benchmark and model files remain local and are excluded from Git.
 
 ## The task
 
@@ -132,7 +142,7 @@ Exclude missing customer/invoice/product IDs, C-prefixed invoices, non-positive 
 
 ## AI, evidence, and human review
 
-`analytics.py` performs exact calculations and retrieval. `ai.py` sends fixed facts and complete computed features and up to ten recent invoice examples to an LLM. `app.py` shows the result and evidence. The model generates explanations and limitations. Python attaches each metric value and source-reference keys directly from the evidence package. The validator checks the assembled customer, numbers and references, and rejects numerical prose outside the relevant supplied facts and exact source dates. This mechanical validation does not prove the prose is semantically correct. Human review is required, especially for unsupported comparative or causal claims.
+In the archived purchase explorer, `analytics.py` performs exact calculations and retrieval. `ai.py` sends fixed facts, computed features, and up to ten recent invoice examples to a local LLM. `pages/1_Purchase_Explorer.py` shows the result and evidence. This is separate from the focused prediction page, which uses a trained tabular model and does not require an LLM. Python attaches each explorer metric and source-reference key directly from the evidence package. Its validator checks the assembled customer, numbers, and references, but mechanical validation does not prove the prose is semantically correct. Human review is required.
 
 Reviews remain in session memory until downloaded as JSON. The record identifies the evidence hash and model response. Filter or focus/model changes clear the old AI result, preventing it from appearing under a different customer. A review without a model response is explicitly labeled `computed_evidence_only`.
 

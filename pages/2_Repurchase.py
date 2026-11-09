@@ -14,6 +14,9 @@ LOCAL = ROOT/'runtime/repurchase_focused_v1'
 st.set_page_config(page_title='Retail360 | 60-day repurchase', layout='wide')
 st.title('Will this customer buy again within 60 days?')
 st.caption('Historical backtest using UCI Online Retail II · No paid API or LLM required')
+st.info('Try the demo: compare the models below, then go to **Section 4** to select '
+        'one of 10 real customers, inspect their original invoice rows, and record '
+        'your own review. This public demonstration uses stored historical scores.')
 
 
 @st.cache_data
