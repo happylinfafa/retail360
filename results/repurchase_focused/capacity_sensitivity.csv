@@ -1,0 +1,10 @@
+cutoff,capacity_share,eligible_customers,review_capacity,rfm_repeat_buyers_found,full_repeat_buyers_found,incremental_repeat_buyers_found,scope
+2011-08-01,0.05,2771,139,132,134,2,Historical ranking comparison; no marketing intervention measured.
+2011-08-01,0.1,2771,278,247,248,1,Historical ranking comparison; no marketing intervention measured.
+2011-08-01,0.2,2771,555,441,451,10,Historical ranking comparison; no marketing intervention measured.
+2011-09-01,0.05,2772,139,134,134,0,Historical ranking comparison; no marketing intervention measured.
+2011-09-01,0.1,2772,278,256,258,2,Historical ranking comparison; no marketing intervention measured.
+2011-09-01,0.2,2772,555,458,457,-1,Historical ranking comparison; no marketing intervention measured.
+2011-10-01,0.05,2925,147,139,138,-1,Historical ranking comparison; no marketing intervention measured.
+2011-10-01,0.1,2925,293,268,269,1,Historical ranking comparison; no marketing intervention measured.
+2011-10-01,0.2,2925,585,491,493,2,Historical ranking comparison; no marketing intervention measured.
