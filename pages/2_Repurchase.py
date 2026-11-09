@@ -37,10 +37,11 @@ def read_robustness():
 
 @st.cache_data
 def read_decision_evidence():
-    paths = [PUBLIC/'decision_utility.csv', PUBLIC/'cohort_overlap.csv']
+    paths = [PUBLIC/'decision_utility.csv', PUBLIC/'cohort_overlap.csv',
+             PUBLIC/'capacity_sensitivity.csv']
     if not all(path.exists() for path in paths):
         return None
-    return pd.read_csv(paths[0]), pd.read_csv(paths[1])
+    return tuple(pd.read_csv(path) for path in paths)
 
 
 def calibrated_probability(raw, params):
@@ -120,7 +121,7 @@ if robustness is not None:
                'These checks are temporal sensitivity evidence, not independent external confirmation.')
 
 if decision_evidence is not None:
-    utility, overlap = decision_evidence
+    utility, overlap, capacity = decision_evidence
     st.subheader('What changes with a fixed review capacity?')
     st.write('Suppose an analyst can review only the top 10% of eligible customers. '
              'The two models use the same number of review slots at each cutoff.')
@@ -131,6 +132,15 @@ if decision_evidence is not None:
     st.caption('The full model found only 1, 2, and 1 additional actual repeat buyers '
                'at the August, September, and October cutoffs. This is a historical '
                'ranking comparison, not an estimate of the effect of contacting anyone.')
+    st.write('The result also depends on how many customers the analyst can review. '
+             'At the September cutoff:')
+    st.dataframe(capacity.loc[capacity.cutoff == '2011-09-01', [
+        'capacity_share', 'review_capacity', 'rfm_repeat_buyers_found',
+        'full_repeat_buyers_found', 'incremental_repeat_buyers_found']],
+        hide_index=True, width='stretch')
+    st.caption('At 5% capacity the full model finds no extra repeat buyers; '
+               'at 10% it finds two more; at 20% it finds one fewer. '
+               'No marketing intervention was evaluated.')
     st.write('The evaluation windows share many of the same customers:')
     st.dataframe(overlap[['first_cutoff', 'second_cutoff', 'shared_customers',
                           'overlap_share_of_first']], hide_index=True, width='stretch')
