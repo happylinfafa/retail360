@@ -1,6 +1,6 @@
 # Retail360: three-minute demo recording plan
 
-Record the actual [Streamlit app](https://retail360-challenge2-nlavk4zsab8qmxgkvbfmwy.streamlit.app/Repurchase) at readable zoom. Keep the mouse movements slow. This is a recording guide, not a finished video. The public app displays ten stored real customer cases; it does not score an arbitrary new customer live.
+Record the actual [Streamlit app](https://retail360-xinlong.streamlit.app/Repurchase) at readable zoom. Keep the mouse movements slow. This is a recording guide, not a finished video. The public app displays ten stored real customer cases; it does not score an arbitrary new customer live.
 
 | Time | Screen action | Simple narration |
 |---|---|---|

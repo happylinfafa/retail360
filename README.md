@@ -13,7 +13,7 @@ models. It compares a prior-rate baseline, RFM-only models, and models with
 more historical purchase features. No graph feature or LLM is required for
 the focused prediction.
 
-🚀 [Open the Streamlit application](https://retail360-challenge2-nlavk4zsab8qmxgkvbfmwy.streamlit.app/).
+🚀 [Open the Streamlit application](https://retail360-xinlong.streamlit.app/).
 The homepage opens the focused **Repurchase** study directly. It uses
 aggregate results and 10 precomputed real customer examples with invoice and
 worksheet-row provenance. It is a historical demonstration, not live scoring.
