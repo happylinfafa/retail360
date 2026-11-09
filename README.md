@@ -2,7 +2,7 @@
 
 **Author:** Xin Long · University of Missouri–Kansas City
 **Project poster:** [48 × 36-inch PDF](docs/Retail360_Project_Poster.pdf)
-**Demo preparation:** [optional three-minute recording outline](docs/demo_video_script.md). The final video will be recorded separately.
+**Three-minute demo video:** [Watch or download the MP4](docs/Retail360_3min_Demo.mp4) · [English transcript](docs/demo_video_transcript.md)
 
 **Acknowledgements:** Thanks to CS 5588 — Data Science Capstone and Instructor: Yugyung Lee.
 
