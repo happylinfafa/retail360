@@ -14,9 +14,9 @@ LOCAL = ROOT/'runtime/repurchase_focused_v1'
 st.set_page_config(page_title='Retail360 | 60-day repurchase', layout='wide')
 st.title('Will this customer buy again within 60 days?')
 st.caption('Historical backtest using UCI Online Retail II · No paid API or LLM required')
-st.info('Try the demo: compare the models below, then go to **Section 4** to select '
-        'one of 10 real customers, inspect their original invoice rows, and record '
-        'your own review. This public demonstration uses stored historical scores.')
+st.info('Start below: select one of 10 real historical customers, inspect the '
+        'original invoice rows, and record your review. Model comparisons follow '
+        'the customer example. This public demo uses stored historical scores.')
 
 
 @st.cache_data
@@ -87,6 +87,7 @@ if not local_available:
             'score a new customer live. Research metrics below use the full test cohort, '
             'not just these 10 display examples.')
 
+params = robustness[2] if robustness is not None else None
 selected = summary['selected_model']
 test_selected = summary['test_selected_model']
 baseline = metrics[(metrics.model == 'overall_rate') & (metrics.split == 'test')].iloc[0]
@@ -99,85 +100,7 @@ st.caption('AP (average precision) measures ranking of actual repeat buyers; hig
            'chosen after earlier graph-model results were seen, so this is an exploratory '
            'comparison, not a new untouched confirmation.')
 
-st.subheader('1 · Compare models and historical information')
-model_order = ['overall_rate', 'rfm_logistic', 'rfm_temporal_logistic',
-               'all_history_logistic', 'all_history_boosted_tree']
-chart = metrics[(metrics.model.isin(model_order)) & (metrics.split == 'test')]
-chart = chart.set_index('model').loc[model_order, ['average_precision']]
-st.bar_chart(chart, color='#087ea4', height=310)
-st.dataframe(metrics[metrics.split == 'test'][['model', 'average_precision', 'roc_auc',
-                                               'brier', 'precision_top_10pct']],
-             hide_index=True, width='stretch')
-st.caption('RFM = days since last purchase, invoice count, and historical spending. '
-           'Temporal features add recent activity and purchase gaps; the all-history set '
-           'also includes product diversity. These are descriptive purchase features, not a graph model.')
-
-if robustness is not None:
-    temporal, calibrated_groups, params = robustness
-    st.subheader('Additional time windows · exploratory robustness')
-    st.dataframe(temporal[['cutoff', 'n', 'positive_rate', 'rfm_ap', 'all_history_ap',
-                           'ap_difference', 'ap_difference_ci_low', 'ap_difference_ci_high',
-                           'precision_top_10pct']], hide_index=True, width='stretch')
-    st.caption('The 95% intervals use 2,000 paired customer-row bootstrap resamples within '
-               'each cutoff. August and October have non-overlapping 60-day outcome windows, '
-               'but customers and histories can overlap; September was examined previously. '
-               'These checks are temporal sensitivity evidence, not independent external confirmation.')
-
-if decision_evidence is not None:
-    utility, overlap, capacity = decision_evidence
-    st.subheader('What changes with a fixed review capacity?')
-    st.write('Suppose an analyst can review only the top 10% of eligible customers. '
-             'The two models use the same number of review slots at each cutoff.')
-    st.dataframe(utility[['cutoff', 'review_capacity', 'rfm_repeat_buyers_found',
-                          'full_repeat_buyers_found', 'incremental_repeat_buyers_found',
-                          'customers_selected_only_by_full']],
-                 hide_index=True, width='stretch')
-    st.caption('The full model found only 1, 2, and 1 additional actual repeat buyers '
-               'at the August, September, and October cutoffs. This is a historical '
-               'ranking comparison, not an estimate of the effect of contacting anyone.')
-    st.write('The result also depends on how many customers the analyst can review. '
-             'At the September cutoff:')
-    st.dataframe(capacity.loc[capacity.cutoff == '2011-09-01', [
-        'capacity_share', 'review_capacity', 'rfm_repeat_buyers_found',
-        'full_repeat_buyers_found', 'incremental_repeat_buyers_found']],
-        hide_index=True, width='stretch')
-    st.caption('At 5% capacity the full model finds no extra repeat buyers; '
-               'at 10% it finds two more; at 20% it finds one fewer. '
-               'No marketing intervention was evaluated.')
-    st.write('The evaluation windows share many of the same customers:')
-    st.dataframe(overlap[['first_cutoff', 'second_cutoff', 'shared_customers',
-                          'overlap_share_of_first']], hide_index=True, width='stretch')
-
-st.subheader('2 · Check whether the probabilities are reliable')
-if robustness is not None:
-    plot = calibrated_groups.set_index('group')[[
-        'raw_mean_probability', 'calibrated_mean_probability', 'observed_rate']]
-else:
-    plot = calibration.set_index('probability_group')[[
-        'mean_predicted_probability', 'actual_repurchase_rate']]
-st.line_chart(plot, height=300)
-st.dataframe(calibrated_groups if robustness is not None else calibration,
-             hide_index=True, width='stretch')
-if robustness is not None:
-    st.caption('Platt calibration was fit on June 2011 validation predictions, before the '
-               'later evaluation windows. September Brier score improved from '
-               f"{temporal.loc[temporal.cutoff == '2011-09-01', 'raw_brier'].iloc[0]:.3f} to "
-               f"{temporal.loc[temporal.cutoff == '2011-09-01', 'calibrated_brier'].iloc[0]:.3f}. "
-               'Observed rates still exceed adjusted scores in the five displayed groups.')
-if (calibration.actual_repurchase_rate > calibration.mean_predicted_probability).all():
-    st.warning('In every test group, the observed purchase rate exceeds the mean predicted '
-               'probability. The model ranks customers usefully, but its numeric probabilities '
-               'underestimate purchases on this test date. Do not treat them as calibrated odds.')
-
-st.subheader('3 · Inspect a group where the model may be less reliable')
-frequency = slices[slices.dimension == 'frequency_group'].set_index('group')
-st.bar_chart(frequency[['actual_repurchase_rate', 'mean_predicted_probability']],
-             height=280, stack=False)
-st.dataframe(slices, hide_index=True, width='stretch')
-st.caption('Group results are descriptive. They do not show that changing a customer’s '
-           'purchase frequency would cause a different outcome.')
-
-st.subheader('4 · Review one real historical customer')
+st.subheader('1 · Review one real historical customer')
 if local_available:
     population = read_local()
     choice = st.selectbox('Customer ID · full local test set',
@@ -245,3 +168,82 @@ st.download_button('Download review', json.dumps(review, indent=2),
                    'repurchase_review.json', mime='application/json')
 st.caption('Source: Daqing Chen, UCI Online Retail II (CC BY 4.0). '
            'The research code and fixed data protocol are in the repository.')
+
+
+st.subheader('2 · Compare models and historical information')
+model_order = ['overall_rate', 'rfm_logistic', 'rfm_temporal_logistic',
+               'all_history_logistic', 'all_history_boosted_tree']
+chart = metrics[(metrics.model.isin(model_order)) & (metrics.split == 'test')]
+chart = chart.set_index('model').loc[model_order, ['average_precision']]
+st.bar_chart(chart, color='#087ea4', height=310)
+st.dataframe(metrics[metrics.split == 'test'][['model', 'average_precision', 'roc_auc',
+                                               'brier', 'precision_top_10pct']],
+             hide_index=True, width='stretch')
+st.caption('RFM = days since last purchase, invoice count, and historical spending. '
+           'Temporal features add recent activity and purchase gaps; the all-history set '
+           'also includes product diversity. These are descriptive purchase features, not a graph model.')
+
+if robustness is not None:
+    temporal, calibrated_groups, params = robustness
+    st.subheader('Additional time windows · exploratory robustness')
+    st.dataframe(temporal[['cutoff', 'n', 'positive_rate', 'rfm_ap', 'all_history_ap',
+                           'ap_difference', 'ap_difference_ci_low', 'ap_difference_ci_high',
+                           'precision_top_10pct']], hide_index=True, width='stretch')
+    st.caption('The 95% intervals use 2,000 paired customer-row bootstrap resamples within '
+               'each cutoff. August and October have non-overlapping 60-day outcome windows, '
+               'but customers and histories can overlap; September was examined previously. '
+               'These checks are temporal sensitivity evidence, not independent external confirmation.')
+
+if decision_evidence is not None:
+    utility, overlap, capacity = decision_evidence
+    st.subheader('What changes with a fixed review capacity?')
+    st.write('Suppose an analyst can review only the top 10% of eligible customers. '
+             'The two models use the same number of review slots at each cutoff.')
+    st.dataframe(utility[['cutoff', 'review_capacity', 'rfm_repeat_buyers_found',
+                          'full_repeat_buyers_found', 'incremental_repeat_buyers_found',
+                          'customers_selected_only_by_full']],
+                 hide_index=True, width='stretch')
+    st.caption('The full model found only 1, 2, and 1 additional actual repeat buyers '
+               'at the August, September, and October cutoffs. This is a historical '
+               'ranking comparison, not an estimate of the effect of contacting anyone.')
+    st.write('The result also depends on how many customers the analyst can review. '
+             'At the September cutoff:')
+    st.dataframe(capacity.loc[capacity.cutoff == '2011-09-01', [
+        'capacity_share', 'review_capacity', 'rfm_repeat_buyers_found',
+        'full_repeat_buyers_found', 'incremental_repeat_buyers_found']],
+        hide_index=True, width='stretch')
+    st.caption('At 5% capacity the full model finds no extra repeat buyers; '
+               'at 10% it finds two more; at 20% it finds one fewer. '
+               'No marketing intervention was evaluated.')
+    st.write('The evaluation windows share many of the same customers:')
+    st.dataframe(overlap[['first_cutoff', 'second_cutoff', 'shared_customers',
+                          'overlap_share_of_first']], hide_index=True, width='stretch')
+
+st.subheader('3 · Check whether the probabilities are reliable')
+if robustness is not None:
+    plot = calibrated_groups.set_index('group')[[
+        'raw_mean_probability', 'calibrated_mean_probability', 'observed_rate']]
+else:
+    plot = calibration.set_index('probability_group')[[
+        'mean_predicted_probability', 'actual_repurchase_rate']]
+st.line_chart(plot, height=300)
+st.dataframe(calibrated_groups if robustness is not None else calibration,
+             hide_index=True, width='stretch')
+if robustness is not None:
+    st.caption('Platt calibration was fit on June 2011 validation predictions, before the '
+               'later evaluation windows. September Brier score improved from '
+               f"{temporal.loc[temporal.cutoff == '2011-09-01', 'raw_brier'].iloc[0]:.3f} to "
+               f"{temporal.loc[temporal.cutoff == '2011-09-01', 'calibrated_brier'].iloc[0]:.3f}. "
+               'Observed rates still exceed adjusted scores in the five displayed groups.')
+if (calibration.actual_repurchase_rate > calibration.mean_predicted_probability).all():
+    st.warning('In every test group, the observed purchase rate exceeds the mean predicted '
+               'probability. The model ranks customers usefully, but its numeric probabilities '
+               'underestimate purchases on this test date. Do not treat them as calibrated odds.')
+
+st.subheader('4 · Inspect a group where the model may be less reliable')
+frequency = slices[slices.dimension == 'frequency_group'].set_index('group')
+st.bar_chart(frequency[['actual_repurchase_rate', 'mean_predicted_probability']],
+             height=280, stack=False)
+st.dataframe(slices, hide_index=True, width='stretch')
+st.caption('Group results are descriptive. They do not show that changing a customer’s '
+           'purchase frequency would cause a different outcome.')

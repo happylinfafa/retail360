@@ -22,9 +22,9 @@ See the self-contained [research methods and results](docs/focused_repurchase.md
 
 ### What to show in a three-minute demo
 
-1. Compare the held-out test results: average precision (AP) is **0.491** for the overall-rate baseline, **0.750** for RFM, and **0.755** for the full-history logistic model.
-2. At a fixed 10% review capacity, the full model finds **258** actual repeat buyers versus **256** for RFM among the same **278** customers reviewed. The gain is small and varies with capacity.
-3. Scroll to **Review a real customer**. Select customer **14397**, inspect historical features and invoice/source-row evidence, then choose **Accept for analysis** or **Reject / investigate** and download the review.
+1. Select a stored historical customer near the top of the app, inspect the features and invoice/source-row evidence, then record a review. The public app has 10 stored cases.
+2. Compare the held-out test results: average precision (AP) is **0.491** for the overall-rate baseline, **0.750** for RFM, and **0.755** for the full-history logistic model.
+3. At a fixed 10% review capacity, the full model finds **258** actual repeat buyers versus **256** for RFM among the same **278** customers reviewed. The gain is small and varies with capacity.
 4. Explain the boundary: the public app has **10 stored historical cases**. It does not score arbitrary new customers, estimate campaign effects, or provide exact individual odds.
 
 ![Focused prediction application](docs/screenshots/repurchase_demo.png)
